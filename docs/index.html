@@ -51,6 +51,7 @@
             justify-content: center;
             margin-bottom: 30px;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .tab-button {
@@ -238,36 +239,9 @@
 
         .discord-description {
             font-size: 1.1rem;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             opacity: 0.9;
             line-height: 1.6;
-        }
-
-        .discord-stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 20px;
-            min-width: 150px;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #5865F2;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
         }
 
         .discord-button {
@@ -339,6 +313,76 @@
             font-size: 2rem;
             margin-bottom: 15px;
         }
+
+        /* Script List Styles */
+        .scripts-container {
+            text-align: center;
+        }
+
+        .script-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .script-button {
+            background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border: none;
+            padding: 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .script-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .script-icon {
+            font-size: 2.5rem;
+        }
+
+        .script-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .script-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .script-warning {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid #ff6b6b;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .script-warning h3 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .script-support {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
     </style>
 </head>
 <body>
@@ -350,6 +394,7 @@
             <div class="tabs">
                 <button class="tab-button active" data-tab="prices">Prices</button>
                 <button class="tab-button" data-tab="discord">Discord Info</button>
+                <button class="tab-button" data-tab="scripts">Script List</button>
             </div>
         </div>
 
@@ -422,17 +467,6 @@
                         stay updated with the latest news, and participate in exclusive events!
                     </p>
                     
-                    <div class="discord-stats">
-                        <div class="stat">
-                            <div class="stat-number" id="online-count">...</div>
-                            <div class="stat-label">Online Members</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number" id="total-count">...</div>
-                            <div class="stat-label">Total Members</div>
-                        </div>
-                    </div>
-                    
                     <div class="button-group">
                         <a href="https://discord.gg/uCq6dNAfRV" class="discord-button" target="_blank">
                             Join Discord Server
@@ -467,6 +501,60 @@
                 </div>
             </div>
         </div>
+
+        <!-- Script List Tab -->
+        <div class="tab-content" id="scripts-tab">
+            <div class="scripts-container">
+                <h2 class="service-title">📜 Available Scripts</h2>
+                <p style="margin-bottom: 30px; opacity: 0.8;">Click on any script to get the direct Discord link</p>
+                
+                <div class="script-grid">
+                    <a href="https://discordapp.com/channels/1400295038285512864/1440706256263319672" class="script-button" target="_blank">
+                        <div class="script-icon">🌐</div>
+                        <div class="script-name">Universal GUI Script</div>
+                        <div class="script-description">Multi-purpose GUI for various games</div>
+                    </a>
+                    
+                    <a href="https://discordapp.com/channels/1400295038285512864/1441769355393106030" class="script-button" target="_blank">
+                        <div class="script-icon">⚽</div>
+                        <div class="script-name">Touch Football Script</div>
+                        <div class="script-description">Keyless football automation</div>
+                    </a>
+                    
+                    <a href="https://discordapp.com/channels/1400295038285512864/1440710857154891898" class="script-button" target="_blank">
+                        <div class="script-icon">🛡️</div>
+                        <div class="script-name">PVB Script</div>
+                        <div class="script-description">Prison Life and similar games</div>
+                    </a>
+                    
+                    <a href="https://discordapp.com/channels/1400295038285512864/1440690028274782219" class="script-button" target="_blank">
+                        <div class="script-icon">🌙</div>
+                        <div class="script-name">99 Nights Farm Script</div>
+                        <div class="script-description">Automated farming for 99 Nights</div>
+                    </a>
+                    
+                    <a href="https://discordapp.com/channels/1400295038285512864/1440689938944495686" class="script-button" target="_blank">
+                        <div class="script-icon">🏈</div>
+                        <div class="script-name">TSB Script</div>
+                        <div class="script-description">Touchdown Sports Bot with Auto Techs</div>
+                    </a>
+                </div>
+
+                <div class="script-warning">
+                    <h3>⚠️ Important Notice</h3>
+                    <p>This list is NOT automatically updated and may not include newly added scripts. 
+                    Always check the Discord server for the most current script list and updates.</p>
+                </div>
+
+                <div class="script-support">
+                    <h3 style="margin-bottom: 15px;">🐛 Found a bug or script not working?</h3>
+                    <p style="margin-bottom: 20px; opacity: 0.8;">Open a ticket on our support server and our team will help you!</p>
+                    <a href="https://discord.gg/FhK8UGTtU8" class="support-server-button" target="_blank">
+                        🛠️ Open Support Ticket
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -485,24 +573,6 @@
                 document.getElementById(tabId).classList.add('active');
             });
         });
-
-        // Discord member count simulation (would need backend for real data)
-        // This is a simulation - in a real implementation you would fetch this from Discord API
-        function simulateDiscordStats() {
-            // Simulated data - in reality you would need a backend to fetch this
-            // due to CORS restrictions with Discord API
-            const onlineMembers = Math.floor(Math.random() * 50) + 100; // 100-150 online
-            const totalMembers = Math.floor(Math.random() * 200) + 500; // 500-700 total
-            
-            document.getElementById('online-count').textContent = onlineMembers;
-            document.getElementById('total-count').textContent = totalMembers;
-        }
-
-        // Initialize with simulated data
-        simulateDiscordStats();
-
-        // Update stats every 30 seconds (simulation)
-        setInterval(simulateDiscordStats, 30000);
     </script>
 </body>
 </html>
