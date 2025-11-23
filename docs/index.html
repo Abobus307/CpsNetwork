@@ -13,8 +13,8 @@
         }
 
         body {
-            background: linear-gradient(135deg, #8B0000 0%, #4B0082 100%);
-            color: #fff;
+            background: linear-gradient(135deg, #1a0a0a 0%, #0f0714 100%);
+            color: #e0e0e0;
             min-height: 100vh;
             padding: 20px;
         }
@@ -34,7 +34,7 @@
             height: 60px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             z-index: 10;
         }
@@ -48,7 +48,7 @@
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            background: linear-gradient(45deg, #FFD700, #FF6347);
+            background: linear-gradient(45deg, #b38e5d, #a86b6b);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -59,6 +59,7 @@
             font-size: 1.2rem;
             opacity: 0.8;
             margin-bottom: 30px;
+            color: #b0b0b0;
         }
 
         .tabs {
@@ -70,8 +71,8 @@
         }
 
         .tab-button {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            background: rgba(40, 15, 15, 0.4);
+            color: #d0d0d0;
             border: none;
             padding: 12px 30px;
             font-size: 1rem;
@@ -79,26 +80,28 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 1px solid rgba(80, 30, 30, 0.3);
         }
 
         .tab-button.active {
-            background: linear-gradient(45deg, #8B0000 0%, #4B0082 100%);
+            background: linear-gradient(45deg, #2a0f0f 0%, #1a0a1a 100%);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(120, 60, 60, 0.3);
         }
 
         .tab-button:hover:not(.active) {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(60, 25, 25, 0.4);
         }
 
         .tab-content {
             display: none;
-            background: rgba(139, 0, 0, 0.2);
+            background: rgba(30, 10, 10, 0.3);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 30px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(70, 30, 30, 0.2);
             animation: fadeIn 0.5s ease;
         }
 
@@ -119,23 +122,24 @@
         .service-title {
             font-size: 1.5rem;
             margin-bottom: 20px;
-            color: #FFD700;
+            color: #b38e5d;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .plan {
-            background: rgba(75, 0, 130, 0.3);
+            background: rgba(25, 10, 20, 0.4);
             border-radius: 15px;
             padding: 20px;
             margin-bottom: 20px;
             transition: transform 0.3s ease;
+            border: 1px solid rgba(70, 30, 60, 0.2);
         }
 
         .plan:hover {
             transform: translateX(10px);
-            background: rgba(75, 0, 130, 0.4);
+            background: rgba(35, 15, 25, 0.4);
         }
 
         .plan-header {
@@ -148,6 +152,7 @@
         .plan-name {
             font-size: 1.3rem;
             font-weight: bold;
+            color: #d0d0d0;
         }
 
         .price {
@@ -156,6 +161,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            color: #e0e0e0;
         }
 
         .features {
@@ -168,6 +174,7 @@
             gap: 10px;
             margin-bottom: 8px;
             opacity: 0.9;
+            color: #c0c0c0;
         }
 
         .notes-container {
@@ -187,29 +194,30 @@
             flex: 1;
             min-width: 200px;
             padding: 15px;
-            background: rgba(255, 99, 71, 0.2);
+            background: rgba(60, 20, 20, 0.4);
             border-radius: 10px;
             font-size: 0.9rem;
-            border-left: 3px solid #FF6347;
+            border-left: 3px solid #a86b6b;
+            color: #e0e0e0;
         }
 
         .purchase-info {
             flex: 2;
             min-width: 300px;
-            background: #FFD700;
-            color: #000;
+            background: rgba(179, 142, 93, 0.2);
+            color: #e0e0e0;
             padding: 15px;
             border-radius: 10px;
             font-weight: bold;
             text-align: center;
-            border-left: 3px solid #FFC400;
+            border-left: 3px solid rgba(179, 142, 93, 0.5);
         }
 
         .support-button {
             flex: 1;
             min-width: 200px;
-            background: #8B0000;
-            color: white;
+            background: rgba(60, 20, 20, 0.6);
+            color: #e0e0e0;
             padding: 15px;
             border-radius: 10px;
             font-weight: bold;
@@ -220,19 +228,20 @@
             justify-content: center;
             gap: 8px;
             transition: all 0.3s ease;
+            border: 1px solid rgba(100, 40, 40, 0.3);
         }
 
         .support-button:hover {
-            background: #A52A2A;
+            background: rgba(80, 30, 30, 0.6);
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .main-server-button {
             flex: 1;
             min-width: 200px;
-            background: #4B0082;
-            color: white;
+            background: rgba(40, 20, 40, 0.6);
+            color: #e0e0e0;
             padding: 15px;
             border-radius: 10px;
             font-weight: bold;
@@ -243,26 +252,27 @@
             justify-content: center;
             gap: 8px;
             transition: all 0.3s ease;
+            border: 1px solid rgba(80, 40, 80, 0.3);
         }
 
         .main-server-button:hover {
-            background: #6A0DAD;
+            background: rgba(60, 30, 60, 0.6);
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(75, 0, 130, 0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .premium-perks {
             margin-top: 40px;
             padding: 30px;
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(179, 142, 93, 0.1);
             border-radius: 15px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            border: 1px solid rgba(179, 142, 93, 0.2);
         }
 
         .perks-title {
             font-size: 1.8rem;
             margin-bottom: 25px;
-            color: #FFD700;
+            color: #b38e5d;
             text-align: center;
         }
 
@@ -273,10 +283,11 @@
         }
 
         .perk-card {
-            background: rgba(139, 0, 0, 0.2);
+            background: rgba(30, 10, 10, 0.3);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
+            border: 1px solid rgba(70, 30, 30, 0.2);
         }
 
         .perk-icon {
@@ -288,7 +299,7 @@
             font-size: 1.3rem;
             font-weight: bold;
             margin-bottom: 15px;
-            color: #FFD700;
+            color: #b38e5d;
         }
 
         .perk-features {
@@ -301,6 +312,7 @@
             gap: 10px;
             margin-bottom: 8px;
             opacity: 0.9;
+            color: #c0c0c0;
         }
 
         .discord-container {
@@ -308,11 +320,11 @@
         }
 
         .discord-widget {
-            background: rgba(139, 0, 0, 0.2);
+            background: rgba(40, 15, 15, 0.4);
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 25px;
-            border: 2px solid #8B0000;
+            border: 2px solid rgba(80, 30, 30, 0.4);
         }
 
         .discord-icon {
@@ -323,7 +335,7 @@
         .discord-title {
             font-size: 2rem;
             margin-bottom: 15px;
-            color: #8B0000;
+            color: #a86b6b;
         }
 
         .discord-description {
@@ -331,49 +343,52 @@
             margin-bottom: 30px;
             opacity: 0.9;
             line-height: 1.6;
+            color: #d0d0d0;
         }
 
         .discord-button {
-            background: #8B0000;
-            color: white;
+            background: rgba(60, 20, 20, 0.6);
+            color: #e0e0e0;
             border: none;
             padding: 15px 40px;
             font-size: 1.1rem;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             text-decoration: none;
             display: inline-block;
             margin: 10px 5px;
+            border: 1px solid rgba(100, 40, 40, 0.3);
         }
 
         .discord-button:hover {
-            background: #A52A2A;
+            background: rgba(80, 30, 30, 0.6);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(139, 0, 0, 0.4);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
         }
 
         .support-server-button {
-            background: #4B0082;
-            color: white;
+            background: rgba(40, 20, 40, 0.6);
+            color: #e0e0e0;
             border: none;
             padding: 15px 30px;
             font-size: 1.1rem;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(75, 0, 130, 0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             text-decoration: none;
             display: inline-block;
             margin: 10px 5px;
             font-weight: bold;
+            border: 1px solid rgba(80, 40, 80, 0.3);
         }
 
         .support-server-button:hover {
-            background: #6A0DAD;
+            background: rgba(60, 30, 60, 0.6);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(75, 0, 130, 0.4);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
         }
 
         .button-group {
@@ -392,10 +407,11 @@
         }
 
         .feature-card {
-            background: rgba(139, 0, 0, 0.2);
+            background: rgba(30, 10, 10, 0.3);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
+            border: 1px solid rgba(70, 30, 30, 0.2);
         }
 
         .feature-icon {
@@ -415,8 +431,8 @@
         }
 
         .script-button {
-            background: linear-gradient(45deg, #8B0000 0%, #4B0082 100%);
-            color: white;
+            background: linear-gradient(45deg, #2a0f0f 0%, #1a0a1a 100%);
+            color: #e0e0e0;
             border: none;
             padding: 25px 20px;
             border-radius: 15px;
@@ -428,11 +444,13 @@
             align-items: center;
             gap: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 1px solid rgba(80, 30, 30, 0.3);
         }
 
         .script-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #3a1f1f 0%, #2a1a2a 100%);
         }
 
         .script-icon {
@@ -445,8 +463,8 @@
         }
 
         .script-warning {
-            background: rgba(255, 99, 71, 0.2);
-            border: 1px solid #FF6347;
+            background: rgba(60, 20, 20, 0.4);
+            border: 1px solid #a86b6b;
             border-radius: 10px;
             padding: 20px;
             margin: 25px 0;
@@ -454,7 +472,7 @@
         }
 
         .script-warning h3 {
-            color: #FF6347;
+            color: #a86b6b;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
@@ -480,8 +498,8 @@
         }
 
         .platform-tab {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            background: rgba(40, 15, 15, 0.4);
+            color: #d0d0d0;
             border: none;
             padding: 12px 25px;
             font-size: 1rem;
@@ -489,16 +507,18 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 1px solid rgba(80, 30, 30, 0.3);
         }
 
         .platform-tab.active {
-            background: linear-gradient(45deg, #8B0000 0%, #4B0082 100%);
+            background: linear-gradient(45deg, #2a0f0f 0%, #1a0a1a 100%);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(120, 60, 60, 0.3);
         }
 
         .platform-tab:hover:not(.active) {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(60, 25, 25, 0.4);
         }
 
         .platform-content {
@@ -518,18 +538,18 @@
         }
 
         .executer-card {
-            background: rgba(139, 0, 0, 0.2);
+            background: rgba(30, 10, 10, 0.3);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(70, 30, 30, 0.2);
             cursor: pointer;
         }
 
         .executer-card:hover {
             transform: translateY(-5px);
-            background: rgba(139, 0, 0, 0.3);
+            background: rgba(40, 15, 15, 0.4);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
@@ -542,18 +562,21 @@
             font-size: 1.1rem;
             font-weight: bold;
             margin-bottom: 8px;
+            color: #d0d0d0;
         }
 
         .executer-price {
             font-size: 0.9rem;
             opacity: 0.8;
             margin-bottom: 5px;
+            color: #c0c0c0;
         }
 
         .executer-website {
             font-size: 0.8rem;
             opacity: 0.7;
             word-break: break-word;
+            color: #b0b0b0;
         }
 
         /* Modal styles with smooth animation */
@@ -579,14 +602,14 @@
         }
 
         .modal-content {
-            background: linear-gradient(135deg, #8B0000 0%, #4B0082 100%);
+            background: linear-gradient(135deg, #1a0a0a 0%, #0f0714 100%);
             margin: 5% auto;
             padding: 30px;
             border-radius: 20px;
             width: 90%;
             max-width: 500px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(70, 30, 30, 0.3);
             position: relative;
             text-align: center;
             transform: scale(0.8);
@@ -604,18 +627,18 @@
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
-            color: #fff;
+            color: #e0e0e0;
             transition: color 0.3s ease;
         }
 
         .close-button:hover {
-            color: #FF6347;
+            color: #a86b6b;
         }
 
         .modal-title {
             text-align: center;
             margin-bottom: 25px;
-            color: #FFD700;
+            color: #b38e5d;
             font-size: 1.8rem;
         }
 
@@ -634,26 +657,28 @@
 
         .detail-label {
             font-weight: bold;
-            color: #FFD700;
+            color: #b38e5d;
         }
 
         .detail-value {
             text-align: right;
+            color: #e0e0e0;
         }
 
         .website-link {
             display: inline-block;
-            background: #8B0000;
-            color: white;
+            background: rgba(60, 20, 20, 0.6);
+            color: #e0e0e0;
             padding: 8px 15px;
             border-radius: 20px;
             text-decoration: none;
             margin-top: 10px;
             transition: all 0.3s ease;
+            border: 1px solid rgba(100, 40, 40, 0.3);
         }
 
         .website-link:hover {
-            background: #A52A2A;
+            background: rgba(80, 30, 30, 0.6);
             transform: translateY(-2px);
         }
 
@@ -664,8 +689,8 @@
         }
 
         .status-check-notice {
-            background: rgba(255, 193, 7, 0.2);
-            border: 2px solid #ffc107;
+            background: rgba(179, 142, 93, 0.1);
+            border: 2px solid rgba(179, 142, 93, 0.4);
             border-radius: 10px;
             padding: 20px;
             margin: 20px 0;
@@ -673,7 +698,7 @@
         }
 
         .status-check-notice h3 {
-            color: #ffc107;
+            color: #b38e5d;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
@@ -683,25 +708,27 @@
 
         .status-check-link {
             display: inline-block;
-            background: #ffc107;
-            color: #000;
+            background: rgba(179, 142, 93, 0.2);
+            color: #e0e0e0;
             padding: 12px 25px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             margin-top: 15px;
             transition: all 0.3s ease;
+            border: 1px solid rgba(179, 142, 93, 0.3);
         }
 
         .status-check-link:hover {
-            background: #ffb300;
+            background: rgba(179, 142, 93, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+            box-shadow: 0 4px 15px rgba(179, 142, 93, 0.2);
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Добавленный значок в левом верхнем углу -->
         <img src="https://cdn.discordapp.com/attachments/1427720582216159324/1442110870946709536/1760377122964.png?ex=69243de8&is=6922ec68&hm=669ec25d058e4b3ef700e51c8f351bd2e317475df4b3cd16b47f88bac39378b1&" alt="CPS Network Logo" class="logo">
         
         <div class="header">
@@ -856,7 +883,7 @@
         <div class="tab-content" id="scripts-tab">
             <div class="scripts-container">
                 <h2 class="service-title">📜 Available Scripts</h2>
-                <p style="margin-bottom: 30px; opacity: 0.8;">Click on any script to get the direct Discord link</p>
+                <p style="margin-bottom: 30px; opacity: 0.8; color: #c0c0c0;">Click on any script to get the direct Discord link</p>
                 
                 <div class="script-grid">
                     <div class="script-item">
@@ -896,8 +923,8 @@
                 </div>
 
                 <div class="script-support">
-                    <h3 style="margin-bottom: 15px;">🐛 Found a bug or script not working?</h3>
-                    <p style="margin-bottom: 20px; opacity: 0.8;">Open a ticket on our support server and our team will help you!</p>
+                    <h3 style="margin-bottom: 15px; color: #b38e5d;">🐛 Found a bug or script not working?</h3>
+                    <p style="margin-bottom: 20px; opacity: 0.8; color: #c0c0c0;">Open a ticket on our support server and our team will help you!</p>
                     <a href="https://discord.gg/FhK8UGTtU8" class="support-server-button" target="_blank">
                         🛠️ Open Support Ticket
                     </a>
@@ -908,7 +935,7 @@
         <div class="tab-content" id="executers-tab">
             <div class="executers-container">
                 <h2 class="service-title">⚙️ Supported Executers</h2>
-                <p style="margin-bottom: 30px; opacity: 0.8;">Click on any executor to get more information</p>
+                <p style="margin-bottom: 30px; opacity: 0.8; color: #c0c0c0;">Click on any executor to get more information</p>
                 
                 <div class="status-check-notice">
                     <h3>🔍 Check Executor Statuses</h3>
@@ -926,7 +953,7 @@
                 </div>
                 
                 <div class="platform-content active" id="pc-content">
-                    <h3 style="margin-bottom: 20px; color: #FFD700;">PC Executers</h3>
+                    <h3 style="margin-bottom: 20px; color: #b38e5d;">PC Executers</h3>
                     <div class="executers-grid">
                         <div class="executer-card" onclick="showExecuterInfo('Volcano', 'Free (Key System)', 'https://volcano.wtf')">
                             <div class="executer-icon">🌋</div>
@@ -998,7 +1025,7 @@
                 </div>
                 
                 <div class="platform-content" id="mac-content">
-                    <h3 style="margin-bottom: 20px; color: #FFD700;">Mac Executers</h3>
+                    <h3 style="margin-bottom: 20px; color: #b38e5d;">Mac Executers</h3>
                     <div class="executers-grid">
                         <div class="executer-card" onclick="showExecuterInfo('Hydrogen', 'Free (Key System)', 'https://hydrogen.lat')">
                             <div class="executer-icon">💧</div>
@@ -1016,7 +1043,7 @@
                 </div>
                 
                 <div class="platform-content" id="android-content">
-                    <h3 style="margin-bottom: 20px; color: #FFD700;">Android Executers</h3>
+                    <h3 style="margin-bottom: 20px; color: #b38e5d;">Android Executers</h3>
                     <div class="executers-grid">
                         <div class="executer-card" onclick="showExecuterInfo('Codex', 'Free (Key System)', 'https://codex.lol')">
                             <div class="executer-icon">📜</div>
@@ -1040,7 +1067,7 @@
                 </div>
                 
                 <div class="platform-content" id="ios-content">
-                    <h3 style="margin-bottom: 20px; color: #FFD700;">iOS Executers</h3>
+                    <h3 style="margin-bottom: 20px; color: #b38e5d;">iOS Executers</h3>
                     <div class="executers-grid">
                         <div class="executer-card" onclick="showExecuterInfo('Delta', 'Free (Key System)', 'https://deltaexploits.gg')">
                             <div class="executer-icon">Δ</div>
@@ -1121,7 +1148,7 @@
                     </a>
                 </div>
                 
-                <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem;">
+                <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem; color: #c0c0c0;">
                     We do not track executor update statuses. Always check the official website for current status.
                 </p>
             `;
