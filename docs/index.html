@@ -13,7 +13,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #8B0000 0%, #4B0082 100%);
             color: #fff;
             min-height: 100vh;
             padding: 20px;
@@ -23,17 +23,32 @@
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 10;
         }
 
         .header {
             margin-bottom: 30px;
             padding: 20px;
+            position: relative;
         }
 
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+            background: linear-gradient(45deg, #FFD700, #FF6347);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -67,7 +82,7 @@
         }
 
         .tab-button.active {
-            background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+            background: linear-gradient(45deg, #8B0000 0%, #4B0082 100%);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
@@ -78,7 +93,7 @@
 
         .tab-content {
             display: none;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(139, 0, 0, 0.2);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 30px;
@@ -104,14 +119,14 @@
         .service-title {
             font-size: 1.5rem;
             margin-bottom: 20px;
-            color: #ffd700;
+            color: #FFD700;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .plan {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(75, 0, 130, 0.3);
             border-radius: 15px;
             padding: 20px;
             margin-bottom: 20px;
@@ -120,7 +135,7 @@
 
         .plan:hover {
             transform: translateX(10px);
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(75, 0, 130, 0.4);
         }
 
         .plan-header {
@@ -172,28 +187,28 @@
             flex: 1;
             min-width: 200px;
             padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 99, 71, 0.2);
             border-radius: 10px;
             font-size: 0.9rem;
-            border-left: 3px solid #ff6b6b;
+            border-left: 3px solid #FF6347;
         }
 
         .purchase-info {
             flex: 2;
             min-width: 300px;
-            background: #ffd700;
+            background: #FFD700;
             color: #000;
             padding: 15px;
             border-radius: 10px;
             font-weight: bold;
             text-align: center;
-            border-left: 3px solid #ffc400;
+            border-left: 3px solid #FFC400;
         }
 
         .support-button {
             flex: 1;
             min-width: 200px;
-            background: #5865F2;
+            background: #8B0000;
             color: white;
             padding: 15px;
             border-radius: 10px;
@@ -208,16 +223,16 @@
         }
 
         .support-button:hover {
-            background: #4752c4;
+            background: #A52A2A;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
         }
 
         .main-server-button {
             flex: 1;
             min-width: 200px;
-            background: #57F287;
-            color: #000;
+            background: #4B0082;
+            color: white;
             padding: 15px;
             border-radius: 10px;
             font-weight: bold;
@@ -231,9 +246,9 @@
         }
 
         .main-server-button:hover {
-            background: #43b881;
+            background: #6A0DAD;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(87, 242, 135, 0.3);
+            box-shadow: 0 4px 15px rgba(75, 0, 130, 0.3);
         }
 
         .premium-perks {
@@ -247,7 +262,7 @@
         .perks-title {
             font-size: 1.8rem;
             margin-bottom: 25px;
-            color: #ffd700;
+            color: #FFD700;
             text-align: center;
         }
 
@@ -258,7 +273,7 @@
         }
 
         .perk-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(139, 0, 0, 0.2);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
@@ -273,7 +288,7 @@
             font-size: 1.3rem;
             font-weight: bold;
             margin-bottom: 15px;
-            color: #ffd700;
+            color: #FFD700;
         }
 
         .perk-features {
@@ -293,11 +308,11 @@
         }
 
         .discord-widget {
-            background: rgba(88, 101, 242, 0.1);
+            background: rgba(139, 0, 0, 0.2);
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 25px;
-            border: 2px solid #5865F2;
+            border: 2px solid #8B0000;
         }
 
         .discord-icon {
@@ -308,7 +323,7 @@
         .discord-title {
             font-size: 2rem;
             margin-bottom: 15px;
-            color: #5865F2;
+            color: #8B0000;
         }
 
         .discord-description {
@@ -319,7 +334,7 @@
         }
 
         .discord-button {
-            background: #5865F2;
+            background: #8B0000;
             color: white;
             border: none;
             padding: 15px 40px;
@@ -327,28 +342,28 @@
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
             text-decoration: none;
             display: inline-block;
             margin: 10px 5px;
         }
 
         .discord-button:hover {
-            background: #4752c4;
+            background: #A52A2A;
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.4);
+            box-shadow: 0 8px 25px rgba(139, 0, 0, 0.4);
         }
 
         .support-server-button {
-            background: #57F287;
-            color: #000;
+            background: #4B0082;
+            color: white;
             border: none;
             padding: 15px 30px;
             font-size: 1.1rem;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(87, 242, 135, 0.3);
+            box-shadow: 0 4px 15px rgba(75, 0, 130, 0.3);
             text-decoration: none;
             display: inline-block;
             margin: 10px 5px;
@@ -356,9 +371,9 @@
         }
 
         .support-server-button:hover {
-            background: #43b881;
+            background: #6A0DAD;
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(87, 242, 135, 0.4);
+            box-shadow: 0 8px 25px rgba(75, 0, 130, 0.4);
         }
 
         .button-group {
@@ -377,7 +392,7 @@
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(139, 0, 0, 0.2);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
@@ -400,7 +415,7 @@
         }
 
         .script-button {
-            background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+            background: linear-gradient(45deg, #8B0000 0%, #4B0082 100%);
             color: white;
             border: none;
             padding: 25px 20px;
@@ -430,8 +445,8 @@
         }
 
         .script-warning {
-            background: rgba(255, 107, 107, 0.1);
-            border: 1px solid #ff6b6b;
+            background: rgba(255, 99, 71, 0.2);
+            border: 1px solid #FF6347;
             border-radius: 10px;
             padding: 20px;
             margin: 25px 0;
@@ -439,7 +454,7 @@
         }
 
         .script-warning h3 {
-            color: #ff6b6b;
+            color: #FF6347;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
@@ -477,7 +492,7 @@
         }
 
         .platform-tab.active {
-            background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+            background: linear-gradient(45deg, #8B0000 0%, #4B0082 100%);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
@@ -503,7 +518,7 @@
         }
 
         .executer-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(139, 0, 0, 0.2);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
@@ -514,7 +529,7 @@
 
         .executer-card:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(139, 0, 0, 0.3);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
@@ -564,7 +579,7 @@
         }
 
         .modal-content {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #8B0000 0%, #4B0082 100%);
             margin: 5% auto;
             padding: 30px;
             border-radius: 20px;
@@ -594,13 +609,13 @@
         }
 
         .close-button:hover {
-            color: #ff6b6b;
+            color: #FF6347;
         }
 
         .modal-title {
             text-align: center;
             margin-bottom: 25px;
-            color: #ffd700;
+            color: #FFD700;
             font-size: 1.8rem;
         }
 
@@ -619,7 +634,7 @@
 
         .detail-label {
             font-weight: bold;
-            color: #57F287;
+            color: #FFD700;
         }
 
         .detail-value {
@@ -628,7 +643,7 @@
 
         .website-link {
             display: inline-block;
-            background: #5865F2;
+            background: #8B0000;
             color: white;
             padding: 8px 15px;
             border-radius: 20px;
@@ -638,7 +653,7 @@
         }
 
         .website-link:hover {
-            background: #4752c4;
+            background: #A52A2A;
             transform: translateY(-2px);
         }
 
@@ -687,6 +702,8 @@
 </head>
 <body>
     <div class="container">
+        <img src="https://cdn.discordapp.com/attachments/1427720582216159324/1442110870946709536/1760377122964.png?ex=69243de8&is=6922ec68&hm=669ec25d058e4b3ef700e51c8f351bd2e317475df4b3cd16b47f88bac39378b1&" alt="CPS Network Logo" class="logo">
+        
         <div class="header">
             <h1>💸 CPS Network</h1>
             <p class="subtitle">Premium Services & Community</p>
@@ -909,7 +926,7 @@
                 </div>
                 
                 <div class="platform-content active" id="pc-content">
-                    <h3 style="margin-bottom: 20px; color: #57F287;">PC Executers</h3>
+                    <h3 style="margin-bottom: 20px; color: #FFD700;">PC Executers</h3>
                     <div class="executers-grid">
                         <div class="executer-card" onclick="showExecuterInfo('Volcano', 'Free (Key System)', 'https://volcano.wtf')">
                             <div class="executer-icon">🌋</div>
@@ -981,7 +998,7 @@
                 </div>
                 
                 <div class="platform-content" id="mac-content">
-                    <h3 style="margin-bottom: 20px; color: #57F287;">Mac Executers</h3>
+                    <h3 style="margin-bottom: 20px; color: #FFD700;">Mac Executers</h3>
                     <div class="executers-grid">
                         <div class="executer-card" onclick="showExecuterInfo('Hydrogen', 'Free (Key System)', 'https://hydrogen.lat')">
                             <div class="executer-icon">💧</div>
@@ -999,7 +1016,7 @@
                 </div>
                 
                 <div class="platform-content" id="android-content">
-                    <h3 style="margin-bottom: 20px; color: #57F287;">Android Executers</h3>
+                    <h3 style="margin-bottom: 20px; color: #FFD700;">Android Executers</h3>
                     <div class="executers-grid">
                         <div class="executer-card" onclick="showExecuterInfo('Codex', 'Free (Key System)', 'https://codex.lol')">
                             <div class="executer-icon">📜</div>
@@ -1023,7 +1040,7 @@
                 </div>
                 
                 <div class="platform-content" id="ios-content">
-                    <h3 style="margin-bottom: 20px; color: #57F287;">iOS Executers</h3>
+                    <h3 style="margin-bottom: 20px; color: #FFD700;">iOS Executers</h3>
                     <div class="executers-grid">
                         <div class="executer-card" onclick="showExecuterInfo('Delta', 'Free (Key System)', 'https://deltaexploits.gg')">
                             <div class="executer-icon">Δ</div>
