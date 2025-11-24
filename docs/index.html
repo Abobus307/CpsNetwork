@@ -724,11 +724,59 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(179, 142, 93, 0.2);
         }
+
+        /* Status indicators */
+        .status-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* Update status colors - FIXED */
+        .status-updated {
+            background: rgba(40, 167, 69, 0.3);
+            color: #6bff8d;
+            border: 1px solid rgba(40, 167, 69, 0.5);
+        }
+
+        .status-not-updated {
+            background: rgba(220, 53, 69, 0.3);
+            color: #ff6b7a;
+            border: 1px solid rgba(220, 53, 69, 0.5);
+        }
+
+        .status-unknown-update {
+            background: rgba(108, 117, 125, 0.3);
+            color: #b8c2cc;
+            border: 1px solid rgba(108, 117, 125, 0.5);
+        }
+
+        /* Detect status colors - FIXED */
+        .status-detect {
+            background: rgba(255, 193, 7, 0.3);
+            color: #ffd966;
+            border: 1px solid rgba(255, 193, 7, 0.5);
+        }
+
+        .status-undetect {
+            background: rgba(111, 66, 193, 0.3);
+            color: #b28cff;
+            border: 1px solid rgba(111, 66, 193, 0.5);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Добавленный значок в левом верхнем углу -->
         <img src="https://cdn.discordapp.com/attachments/1427720582216159324/1442110870946709536/1760377122964.png?ex=69243de8&is=6922ec68&hm=669ec25d058e4b3ef700e51c8f351bd2e317475df4b3cd16b47f88bac39378b1&" alt="CPS Network Logo" class="logo">
         
         <div class="header">
@@ -938,10 +986,10 @@
                 <p style="margin-bottom: 30px; opacity: 0.8; color: #c0c0c0;">Click on any executor to get more information</p>
                 
                 <div class="status-check-notice">
-                    <h3>🔍 Check Executor Statuses</h3>
-                    <p>We do not track executor update statuses. To check current statuses, visit:</p>
+                    <h3>🔍 Status Information</h3>
+                    <p>Statuses are not updated automatically and may not be accurate. Always check <strong>weao.xyz</strong> for accurate and current executor statuses.</p>
                     <a href="https://weao.xyz/" class="status-check-link" target="_blank">
-                        📊 Check statuses on weao.xyz
+                        📊 Check accurate statuses on weao.xyz
                     </a>
                 </div>
                 
@@ -959,66 +1007,77 @@
                             <div class="executer-icon">🌋</div>
                             <div class="executer-name">Volcano</div>
                             <div class="executer-price">Free (Key System)</div>
+                            <div class="status-container" id="status-Volcano"></div>
                             <div class="executer-website">volcano.wtf</div>
                         </div>
                         <div class="executer-card" onclick="showExecuterInfo('Velocity', 'Free', 'https://getvelocity.lol')">
                             <div class="executer-icon">⚡</div>
                             <div class="executer-name">Velocity</div>
                             <div class="executer-price">Free</div>
+                            <div class="status-container" id="status-Velocity"></div>
                             <div class="executer-website">getvelocity.lol</div>
                         </div>
                         <div class="executer-card" onclick="showExecuterInfo('Zenith', 'Paid - $6.49 Weekly', 'https://zenith.win')">
                             <div class="executer-icon">🌟</div>
                             <div class="executer-name">Zenith</div>
                             <div class="executer-price">Paid - $6.49 Weekly</div>
+                            <div class="status-container" id="status-Zenith"></div>
                             <div class="executer-website">zenith.win</div>
                         </div>
                         <div class="executer-card" onclick="showExecuterInfo('Wave', 'Paid - $7.49 Weekly', 'https://getwave.gg')">
                             <div class="executer-icon">🌊</div>
                             <div class="executer-name">Wave</div>
                             <div class="executer-price">Paid - $7.49 Weekly</div>
+                            <div class="status-container" id="status-Wave"></div>
                             <div class="executer-website">getwave.gg</div>
                         </div>
                         <div class="executer-card" onclick="showExecuterInfo('Volt', 'Paid - $8 Weekly', 'https://volt.bz')">
                             <div class="executer-icon">🔌</div>
                             <div class="executer-name">Volt</div>
                             <div class="executer-price">Paid - $8 Weekly</div>
+                            <div class="status-container" id="status-Volt"></div>
                             <div class="executer-website">volt.bz</div>
                         </div>
                         <div class="executer-card" onclick="showExecuterInfo('Seliware', 'Paid - $9.99 Monthly', 'https://seliware.com')">
                             <div class="executer-icon">🛡️</div>
                             <div class="executer-name">Seliware</div>
                             <div class="executer-price">Paid - $9.99 Monthly</div>
+                            <div class="status-container" id="status-Seliware"></div>
                             <div class="executer-website">seliware.com</div>
                         </div>
                         <div class="executer-card" onclick="showExecuterInfo('Swift', 'Free (Key System)', 'https://getswift.vip')">
                             <div class="executer-icon">💨</div>
                             <div class="executer-name">Swift</div>
                             <div class="executer-price">Free (Key System)</div>
+                            <div class="status-container" id="status-Swift"></div>
                             <div class="executer-website">getswift.vip</div>
                         </div>
                         <div class="executer-card" onclick="showExecuterInfo('Valex', 'Free (Key System)', 'https://valex.io')">
                             <div class="executer-icon">🔮</div>
                             <div class="executer-name">Valex</div>
                             <div class="executer-price">Free (Key System)</div>
+                            <div class="status-container" id="status-Valex"></div>
                             <div class="executer-website">valex.io</div>
                         </div>
                         <div class="executer-card" onclick="showExecuterInfo('Potassium', 'Paid - $20 Lifetime', 'https://potassium.pro')">
                             <div class="executer-icon">🥔</div>
                             <div class="executer-name">Potassium</div>
                             <div class="executer-price">Paid - $20 Lifetime</div>
+                            <div class="status-container" id="status-Potassium"></div>
                             <div class="executer-website">potassium.pro</div>
                         </div>
                         <div class="executer-card" onclick="showExecuterInfo('Bunni.lol', 'Free (Key System)', 'https://realbunni.com')">
                             <div class="executer-icon">🐰</div>
                             <div class="executer-name">Bunni.lol</div>
                             <div class="executer-price">Free (Key System)</div>
+                            <div class="status-container" id="status-Bunni.lol"></div>
                             <div class="executer-website">realbunni.com</div>
                         </div>
                         <div class="executer-card" onclick="showExecuterInfo('Sirhurt', 'Paid - $2.80 Weekly', 'https://sirhurt.net')">
                             <div class="executer-icon">👑</div>
                             <div class="executer-name">Sirhurt</div>
                             <div class="executer-price">Paid - $2.80 Weekly</div>
+                            <div class="status-container" id="status-Sirhurt"></div>
                             <div class="executer-website">sirhurt.net</div>
                         </div>
                     </div>
@@ -1031,12 +1090,14 @@
                             <div class="executer-icon">💧</div>
                             <div class="executer-name">Hydrogen</div>
                             <div class="executer-price">Free (Key System)</div>
+                            <div class="status-container" id="status-Hydrogen"></div>
                             <div class="executer-website">hydrogen.lat</div>
                         </div>
                         <div class="executer-card" onclick="showExecuterInfo('Macsploit', 'Paid - $8 Lifetime', 'https://abyssdigital.xyz')">
                             <div class="executer-icon">🍎</div>
                             <div class="executer-name">Macsploit</div>
                             <div class="executer-price">Paid - $8 Lifetime</div>
+                            <div class="status-container" id="status-Macsploit"></div>
                             <div class="executer-website">abyssdigital.xyz</div>
                         </div>
                     </div>
@@ -1049,18 +1110,21 @@
                             <div class="executer-icon">📜</div>
                             <div class="executer-name">Codex</div>
                             <div class="executer-price">Free (Key System)</div>
+                            <div class="status-container" id="status-Codex"></div>
                             <div class="executer-website">codex.lol</div>
                         </div>
                         <div class="executer-card" onclick="showExecuterInfo('Cryptic', 'Free (Key System)', 'https://getcryptic.net')">
                             <div class="executer-icon">🔐</div>
                             <div class="executer-name">Cryptic</div>
                             <div class="executer-price">Free (Key System)</div>
+                            <div class="status-container" id="status-Cryptic"></div>
                             <div class="executer-website">getcryptic.net</div>
                         </div>
                         <div class="executer-card" onclick="showExecuterInfo('Delta', 'Free (Key System)', 'https://deltaexploits.gg')">
                             <div class="executer-icon">Δ</div>
                             <div class="executer-name">Delta</div>
                             <div class="executer-price">Free (Key System)</div>
+                            <div class="status-container" id="status-Delta"></div>
                             <div class="executer-website">deltaexploits.gg</div>
                         </div>
                     </div>
@@ -1073,6 +1137,7 @@
                             <div class="executer-icon">Δ</div>
                             <div class="executer-name">Delta</div>
                             <div class="executer-price">Free (Key System)</div>
+                            <div class="status-container" id="status-Delta-iOS"></div>
                             <div class="executer-website">deltaexploits.gg</div>
                         </div>
                     </div>
@@ -1091,6 +1156,94 @@
     </div>
 
     <script>
+        // ==================== STATUS CONFIGURATION ====================
+        let UpdateStatus = {
+            "Volcano": "Not Updated",
+            "Velocity": "Not Updated", 
+            "Zenith": "Not Updated",
+            "Wave": "Updated",
+            "Volt": "Not Updated",
+            "Seliware": "Not Updated",
+            "Swift": "Not Updated",
+            "Valex": "Not Updated",
+            "Potassium": "Not Updated",
+            "Bunni.lol": "Not Updated",
+            "Sirhurt": "Not Updated",
+            "Hydrogen": "Not Updated",
+            "Macsploit": "Updated",
+            "Codex": "Updated",
+            "Cryptic": "Not Updated",
+            "Delta": "Updated",
+            "Delta-iOS": "Updated"
+        };
+
+        let DetectStatus = {
+            "Volcano": "Undetect",
+            "Velocity": "Undetect",
+            "Zenith": "Undetect",
+            "Wave": "Undetect",
+            "Volt": "Undetect",
+            "Seliware": "Undetect",
+            "Swift": "Detected",
+            "Valex": "Undetect",
+            "Potassium": "Undetect",
+            "Bunni.lol": "Undetect",
+            "Sirhurt": "Undetect",
+            "Hydrogen": "Undetect",
+            "Macsploit": "Undetect",
+            "Codex": "Undetect",
+            "Cryptic": "Undetect",
+            "Delta": "Undetect",
+            "Delta-iOS": "Undetect"
+        };
+
+        function createStatusIndicator(type, status) {
+            const indicator = document.createElement('div');
+            
+            if (type === 'update') {
+                if (status === 'Updated') {
+                    indicator.className = 'status-indicator status-updated';
+                    indicator.textContent = 'Updated';
+                } else if (status === 'Not Updated') {
+                    indicator.className = 'status-indicator status-not-updated';
+                    indicator.textContent = 'Not Updated';
+                } else {
+                    indicator.className = 'status-indicator status-unknown-update';
+                    indicator.textContent = 'Unknown';
+                }
+            } else {
+                if (status === 'Detect') {
+                    indicator.className = 'status-indicator status-detect';
+                    indicator.textContent = 'Detect';
+                } else {
+                    indicator.className = 'status-indicator status-undetect';
+                    indicator.textContent = 'Undetect';
+                }
+            }
+            
+            return indicator;
+        }
+
+        function initializeStatuses() {
+            for (const [executerName, updateStatus] of Object.entries(UpdateStatus)) {
+                const statusContainer = document.getElementById(`status-${executerName}`);
+                if (statusContainer) {
+                    statusContainer.innerHTML = '';
+                    
+                    const updateIndicator = createStatusIndicator('update', updateStatus);
+                    statusContainer.appendChild(updateIndicator);
+                    
+                    const detectStatus = DetectStatus[executerName];
+                    if (detectStatus) {
+                        const detectIndicator = createStatusIndicator('detect', detectStatus);
+                        statusContainer.appendChild(detectIndicator);
+                    }
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeStatuses);
+
         document.querySelectorAll('.tab-button').forEach(button => {
             button.addEventListener('click', () => {
                 document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
@@ -1122,6 +1275,9 @@
             
             modalTitle.textContent = `${executerName} Info`;
             
+            const updateStatus = UpdateStatus[executerName] || 'Unknown';
+            const detectStatus = DetectStatus[executerName] || 'Detect';
+            
             modalContent.innerHTML = `
                 <div class="executer-details">
                     <div class="detail-row">
@@ -1129,8 +1285,16 @@
                         <span class="detail-value">${price}</span>
                     </div>
                     <div class="detail-row">
-                        <span class="detail-label">Status:</span>
-                        <span class="detail-value">Check website for current status</span>
+                        <span class="detail-label">Update Status:</span>
+                        <span class="detail-value">
+                            ${createStatusIndicator('update', updateStatus).outerHTML}
+                        </span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Detect Status:</span>
+                        <span class="detail-value">
+                            ${createStatusIndicator('detect', detectStatus).outerHTML}
+                        </span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Website:</span>
@@ -1141,15 +1305,15 @@
                 <a href="${website}" class="website-link" target="_blank">Official Website</a>
                 
                 <div class="status-check-notice" style="margin-top: 20px;">
-                    <h3>🔍 Check Update Status</h3>
-                    <p>To check if this executor is currently updated, visit:</p>
+                    <h3>🔍 Important Notice</h3>
+                    <p>Statuses are not updated automatically and may not be accurate. Always check <strong>weao.xyz</strong> for accurate and current executor statuses.</p>
                     <a href="https://weao.xyz/" class="status-check-link" target="_blank">
-                        📊 weao.xyz
+                        📊 Check accurate statuses on weao.xyz
                     </a>
                 </div>
                 
                 <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem; color: #c0c0c0;">
-                    We do not track executor update statuses. Always check the official website for current status.
+                    We do not track executor update statuses automatically. Always check the official website for current status.
                 </p>
             `;
             
