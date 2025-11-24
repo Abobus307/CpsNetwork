@@ -445,6 +445,8 @@
             gap: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             border: 1px solid rgba(80, 30, 30, 0.3);
+            min-height: 180px;
+            justify-content: center;
         }
 
         .script-button:hover {
@@ -769,6 +771,106 @@
             color: #b28cff;
             border: 1px solid rgba(111, 66, 193, 0.5);
         }
+
+        .script-modal-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .script-modal-button {
+            background: linear-gradient(45deg, #2a0f0f 0%, #1a0a1a 100%);
+            color: #e0e0e0;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1rem;
+            border: 1px solid rgba(80, 30, 30, 0.3);
+        }
+
+        .script-modal-button:hover {
+            background: linear-gradient(45deg, #3a1f1f 0%, #2a1a2a 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .script-modal-button.copy {
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid rgba(40, 167, 69, 0.4);
+        }
+
+        .script-modal-button.copy:hover {
+            background: rgba(40, 167, 69, 0.3);
+        }
+
+        .script-modal-button.discord {
+            background: rgba(88, 101, 242, 0.2);
+            border: 1px solid rgba(88, 101, 242, 0.4);
+        }
+
+        .script-modal-button.discord:hover {
+            background: rgba(88, 101, 242, 0.3);
+        }
+
+        .script-modal-button.option {
+            background: rgba(179, 142, 93, 0.2);
+            border: 1px solid rgba(179, 142, 93, 0.4);
+        }
+
+        .script-modal-button.option:hover {
+            background: rgba(179, 142, 93, 0.3);
+        }
+
+        .script-code {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: left;
+            font-family: monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .copy-success {
+            color: #28a745;
+            margin-top: 10px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .copy-success.show {
+            opacity: 1;
+        }
+
+        .back-button {
+            background: rgba(60, 20, 20, 0.6);
+            color: #e0e0e0;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            border: 1px solid rgba(100, 40, 40, 0.3);
+        }
+
+        .back-button:hover {
+            background: rgba(80, 30, 30, 0.6);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -927,37 +1029,38 @@
         <div class="tab-content" id="scripts-tab">
             <div class="scripts-container">
                 <h2 class="service-title">📜 Available Scripts</h2>
-                <p style="margin-bottom: 30px; opacity: 0.8; color: #c0c0c0;">Click on any script to get the direct Discord link</p>
+                <p style="margin-bottom: 30px; opacity: 0.8; color: #c0c0c0;">Click on any script to get options</p>
                 
                 <div class="script-grid">
-                    <div class="script-item">
-                        <a href="https://discordapp.com/channels/1400295038285512864/1440706256263319672" class="script-button" target="_blank">
-                            <div class="script-icon">🌐</div>
-                            <div class="script-name">Universal GUI Script</div>
-                        </a>
+                    <div class="script-button" onclick="showScriptModal('Universal Gui', 'loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/CPSNetwork\",true))()', 'https://discord.gg/uCq6dNAfRV')">
+                        <div class="script-icon">🌐</div>
+                        <div class="script-name">Universal GUI Script</div>
                     </div>
                     
-                    <a href="https://discordapp.com/channels/1400295038285512864/1441769355393106030" class="script-button" target="_blank">
+                    <div class="script-button" onclick="showScriptModal('Touch Football Script', 'loadstring(game:HttpGet(\"https://gist.githubusercontent.com/aquzeh/8e317c91305a2311bb9931c2b79c15b2/raw/cpstfb\"))()', 'https://discord.gg/uCq6dNAfRV')">
                         <div class="script-icon">⚽</div>
                         <div class="script-name">Touch Football Script</div>
-                    </a>
-                    
-                    <a href="https://discordapp.com/channels/1400295038285512864/1440710857154891898" class="script-button" target="_blank">
-                        <div class="script-icon">🛡️</div>
-                        <div class="script-name">PVB Script</div>
-                    </a>
-                    
-                    <div class="script-item">
-                        <a href="https://discordapp.com/channels/1400295038285512864/1440690028274782219" class="script-button" target="_blank">
-                            <div class="script-icon">🌙</div>
-                            <div class="script-name">99 Nights Farm Script</div>
-                        </a>
                     </div>
                     
-                    <a href="https://discordapp.com/channels/1400295038285512864/1440689938944495686" class="script-button" target="_blank">
+                    <div class="script-button" onclick="showScriptModal('PVB Script', 'loadstring(game:HttpGet(\"https://gist.githubusercontent.com/aquzeh/86b881d600cd8f7fdd007469e4a45965/raw/pvb\"))()', 'https://discord.gg/uCq6dNAfRV')">
+                        <div class="script-icon">🛡️</div>
+                        <div class="script-name">PVB Script</div>
+                    </div>
+                    
+                    <div class="script-button" onclick="showScriptModal('99 Nights Script (Hub)', 'loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/Hub\",true))()', 'https://discord.gg/uCq6dNAfRV')">
+                        <div class="script-icon">🌙</div>
+                        <div class="script-name">99 Nights Script (Hub)</div>
+                    </div>
+                    
+                    <div class="script-button" onclick="showScriptModal('99 Nights Script (AutoFarm)', 'loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/DayFarm%E2%84%A2\",true))()', 'https://discord.gg/uCq6dNAfRV')">
+                        <div class="script-icon">💎</div>
+                        <div class="script-name">99 Nights AutoFarm</div>
+                    </div>
+                    
+                    <div class="script-button" onclick="showTSBModal()">
                         <div class="script-icon">🏈</div>
                         <div class="script-name">TSB Script</div>
-                    </a>
+                    </div>
                 </div>
 
                 <div class="script-warning">
@@ -1142,6 +1245,7 @@
         </div>
     </div>
 
+    <!-- Executer Modal -->
     <div id="executerModal" class="modal">
         <div class="modal-content">
             <span class="close-button" onclick="closeExecuterModal()">&times;</span>
@@ -1151,83 +1255,226 @@
         </div>
     </div>
 
+    <!-- Script Modal -->
+    <div id="scriptModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeScriptModal()">&times;</span>
+            <h2 class="modal-title" id="scriptModalTitle">Script Options</h2>
+            <div id="scriptModalContent">
+                <!-- Content will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- TSB Script Selection Modal -->
+    <div id="tsbModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeTSBModal()">&times;</span>
+            <h2 class="modal-title">Select TSB Script</h2>
+            <div class="script-modal-buttons">
+                <button class="script-modal-button option" onclick="selectTSBScript('Auto Block')">
+                    🛡️ TSB Auto Block
+                </button>
+                <button class="script-modal-button option" onclick="selectTSBScript('Auto Techs')">
+                    🤖 TSB Auto Techs
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-    // ==================== STATUS CONFIGURATION ====================
-    let UpdateStatus = {
-        "Volcano": "Not Updated",
-        "Velocity": "Not Updated", 
-        "Zenith": "Not Updated",
-        "Wave": "Updated",
-        "Volt": "Not Updated",
-        "Seliware": "Not Updated",
-        "Swift": "Not Updated",
-        "Valex": "Not Updated",
-        "Potassium": "Not Updated",
-        "Bunni.lol": "Not Updated",
-        "Sirhurt": "Not Updated",
-        "Hydrogen": "Not Updated",
-        "Macsploit": "Updated",
-        "Codex": "Updated",
-        "Cryptic": "Not Updated",
-        "Delta": "Updated",
-        "Delta-iOS": "Updated"
-    };
-
-    let DetectStatus = {
-        "Volcano": "Undetected",
-        "Velocity": "Undetected",
-        "Zenith": "Undetected",
-        "Wave": "Undetected",
-        "Volt": "Undetected",
-        "Seliware": "Undetected",
-        "Swift": "Detected",
-        "Valex": "Undetected",
-        "Potassium": "Undetected",
-        "Bunni.lol": "Unknown",
-        "Sirhurt": "Undetected",
-        "Hydrogen": "Undetected",
-        "Macsploit": "Undetected",
-        "Codex": "Undetected",
-        "Cryptic": "Undetected",
-        "Delta": "Undetected",
-        "Delta-iOS": "Undetected"
-    };
-
-    function createStatusIndicator(type, status) {
-        const indicator = document.createElement('div');
-        
-        if (type === 'update') {
-            if (status === 'Updated') {
-                indicator.className = 'status-indicator status-updated';
-                indicator.textContent = 'Updated';
-            } else if (status === 'Not Updated') {
-                indicator.className = 'status-indicator status-not-updated';
-                indicator.textContent = 'Not Updated';
-            } else if (status === 'Unknown') {
-                indicator.className = 'status-indicator status-unknown-update';
-                indicator.textContent = 'Unknown';
-            } else {
-                indicator.className = 'status-indicator status-unknown-update';
-                indicator.textContent = 'Unknown';
+        // ==================== SCRIPT DATA ====================
+        const scriptData = {
+            "Universal Gui": {
+                code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/CPSNetwork",true))()',
+                discordLink: 'https://discord.gg/uCq6dNAfRV'
+            },
+            "Touch Football Script": {
+                code: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/aquzeh/8e317c91305a2311bb9931c2b79c15b2/raw/cpstfb"))()',
+                discordLink: 'https://discord.gg/uCq6dNAfRV'
+            },
+            "PVB Script": {
+                code: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/aquzeh/86b881d600cd8f7fdd007469e4a45965/raw/pvb"))()',
+                discordLink: 'https://discord.gg/uCq6dNAfRV'
+            },
+            "99 Nights Script (Hub)": {
+                code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/Hub",true))()',
+                discordLink: 'https://discord.gg/uCq6dNAfRV'
+            },
+            "99 Nights Script (AutoFarm)": {
+                code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/DayFarm%E2%84%A2",true))()',
+                discordLink: 'https://discord.gg/uCq6dNAfRV'
+            },
+            "TSB Auto Block": {
+                code: 'loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/6f502e252308fb97855295005faa73a0.lua"))()',
+                discordLink: 'https://discord.gg/uCq6dNAfRV'
+            },
+            "TSB Auto Techs": {
+                code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/hellattexyss/autotechs/refs/heads/main/cpstechs.lua"))()',
+                discordLink: 'https://discord.gg/uCq6dNAfRV'
             }
-        } else {
-            if (status === 'Detected') {
-                indicator.className = 'status-indicator status-detected';
-                indicator.textContent = 'Detected';
-            } else if (status === 'Undetected') {
-                indicator.className = 'status-indicator status-undetected';
-                indicator.textContent = 'Undetected';
-            } else if (status === 'Unknown') {
-                indicator.className = 'status-indicator status-unknown-update';
-                indicator.textContent = 'Unknown';
-            } else {
-                indicator.className = 'status-indicator status-undetected';
-                indicator.textContent = 'Undetected';
+        };
+
+        function showScriptModal(scriptName, scriptCode, discordLink) {
+            const modal = document.getElementById('scriptModal');
+            const modalTitle = document.getElementById('scriptModalTitle');
+            const modalContent = document.getElementById('scriptModalContent');
+            
+            modalTitle.textContent = `${scriptName} - Options`;
+            
+            modalContent.innerHTML = `
+                <div class="script-modal-buttons">
+                    <button class="script-modal-button copy" onclick="copyScriptCode('${scriptName}')">
+                        📋 Get script now
+                    </button>
+                    <a href="${discordLink}" class="script-modal-button discord" target="_blank">
+                        💬 Go to Discord
+                    </a>
+                </div>
+                <div class="script-code">${scriptCode}</div>
+                <div class="copy-success" id="copySuccessMessage">✅ Script copied to clipboard!</div>
+            `;
+            
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+        }
+
+        function showTSBModal() {
+            const modal = document.getElementById('tsbModal');
+            
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+        }
+
+        function closeTSBModal() {
+            const modal = document.getElementById('tsbModal');
+            
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+
+        function selectTSBScript(scriptType) {
+            closeTSBModal();
+            
+            const fullScriptName = `TSB ${scriptType}`;
+            const scriptCode = scriptData[fullScriptName].code;
+            const discordLink = scriptData[fullScriptName].discordLink;
+            
+            showScriptModal(fullScriptName, scriptCode, discordLink);
+        }
+
+        function copyScriptCode(scriptName) {
+            const scriptCode = scriptData[scriptName].code;
+            
+            navigator.clipboard.writeText(scriptCode).then(() => {
+                const successMessage = document.getElementById('copySuccessMessage');
+                successMessage.classList.add('show');
+                
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 3000);
+            }).catch(err => {
+                console.error('Failed to copy script: ', err);
+                alert('Failed to copy script. Please copy manually.');
+            });
+        }
+
+        function closeScriptModal() {
+            const modal = document.getElementById('scriptModal');
+            
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+            
+            const successMessage = document.getElementById('copySuccessMessage');
+            if (successMessage) {
+                successMessage.classList.remove('show');
             }
         }
-        
-        return indicator;
-    }
+
+        // ==================== STATUS CONFIGURATION ====================
+        let UpdateStatus = {
+            "Volcano": "Not Updated",
+            "Velocity": "Not Updated", 
+            "Zenith": "Not Updated",
+            "Wave": "Updated",
+            "Volt": "Not Updated",
+            "Seliware": "Not Updated",
+            "Swift": "Not Updated",
+            "Valex": "Not Updated",
+            "Potassium": "Not Updated",
+            "Bunni.lol": "Not Updated",
+            "Sirhurt": "Not Updated",
+            "Hydrogen": "Not Updated",
+            "Macsploit": "Updated",
+            "Codex": "Updated",
+            "Cryptic": "Not Updated",
+            "Delta": "Updated",
+            "Delta-iOS": "Updated"
+        };
+
+        let DetectStatus = {
+            "Volcano": "Undetected",
+            "Velocity": "Undetected",
+            "Zenith": "Undetected",
+            "Wave": "Undetected",
+            "Volt": "Undetected",
+            "Seliware": "Undetected",
+            "Swift": "Detected",
+            "Valex": "Undetected",
+            "Potassium": "Undetected",
+            "Bunni.lol": "Unknown",
+            "Sirhurt": "Undetected",
+            "Hydrogen": "Undetected",
+            "Macsploit": "Undetected",
+            "Codex": "Undetected",
+            "Cryptic": "Undetected",
+            "Delta": "Undetected",
+            "Delta-iOS": "Undetected"
+        };
+
+        function createStatusIndicator(type, status) {
+            const indicator = document.createElement('div');
+            
+            if (type === 'update') {
+                if (status === 'Updated') {
+                    indicator.className = 'status-indicator status-updated';
+                    indicator.textContent = 'Updated';
+                } else if (status === 'Not Updated') {
+                    indicator.className = 'status-indicator status-not-updated';
+                    indicator.textContent = 'Not Updated';
+                } else if (status === 'Unknown') {
+                    indicator.className = 'status-indicator status-unknown-update';
+                    indicator.textContent = 'Unknown';
+                } else {
+                    indicator.className = 'status-indicator status-unknown-update';
+                    indicator.textContent = 'Unknown';
+                }
+            } else {
+                if (status === 'Detected') {
+                    indicator.className = 'status-indicator status-detected';
+                    indicator.textContent = 'Detected';
+                } else if (status === 'Undetected') {
+                    indicator.className = 'status-indicator status-undetected';
+                    indicator.textContent = 'Undetected';
+                } else if (status === 'Unknown') {
+                    indicator.className = 'status-indicator status-unknown-update';
+                    indicator.textContent = 'Unknown';
+                } else {
+                    indicator.className = 'status-indicator status-undetected';
+                    indicator.textContent = 'Undetected';
+                }
+            }
+            
+            return indicator;
+        }
 
         function initializeStatuses() {
             for (const [executerName, updateStatus] of Object.entries(UpdateStatus)) {
@@ -1338,9 +1585,20 @@
         }
 
         window.onclick = function(event) {
-            const modal = document.getElementById('executerModal');
-            if (event.target === modal) {
+            const executerModal = document.getElementById('executerModal');
+            const scriptModal = document.getElementById('scriptModal');
+            const tsbModal = document.getElementById('tsbModal');
+            
+            if (event.target === executerModal) {
                 closeExecuterModal();
+            }
+            
+            if (event.target === scriptModal) {
+                closeScriptModal();
+            }
+            
+            if (event.target === tsbModal) {
+                closeTSBModal();
             }
         }
     </script>
