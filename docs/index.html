@@ -1032,29 +1032,24 @@
                 <p style="margin-bottom: 30px; opacity: 0.8; color: #c0c0c0;">Click on any script to get options</p>
                 
                 <div class="script-grid">
-                    <div class="script-button" onclick="showScriptModal('Universal Gui', 'loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/CPSNetwork\",true))()', 'https://discord.gg/uCq6dNAfRV')">
+                    <div class="script-button" onclick="showScriptModal('Universal Gui')">
                         <div class="script-icon">🌐</div>
                         <div class="script-name">Universal GUI Script</div>
                     </div>
                     
-                    <div class="script-button" onclick="showScriptModal('Touch Football Script', 'loadstring(game:HttpGet(\"https://gist.githubusercontent.com/aquzeh/8e317c91305a2311bb9931c2b79c15b2/raw/cpstfb\"))()', 'https://discord.gg/uCq6dNAfRV')">
+                    <div class="script-button" onclick="showScriptModal('Touch Football Script')">
                         <div class="script-icon">⚽</div>
                         <div class="script-name">Touch Football Script</div>
                     </div>
                     
-                    <div class="script-button" onclick="showScriptModal('PVB Script', 'loadstring(game:HttpGet(\"https://gist.githubusercontent.com/aquzeh/86b881d600cd8f7fdd007469e4a45965/raw/pvb\"))()', 'https://discord.gg/uCq6dNAfRV')">
+                    <div class="script-button" onclick="showScriptModal('PVB Script')">
                         <div class="script-icon">🛡️</div>
                         <div class="script-name">PVB Script</div>
                     </div>
                     
-                    <div class="script-button" onclick="showScriptModal('99 Nights Script (Hub)', 'loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/Hub\",true))()', 'https://discord.gg/uCq6dNAfRV')">
+                    <div class="script-button" onclick="show99NightsModal()">
                         <div class="script-icon">🌙</div>
-                        <div class="script-name">99 Nights Script (Hub)</div>
-                    </div>
-                    
-                    <div class="script-button" onclick="showScriptModal('99 Nights Script (AutoFarm)', 'loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/DayFarm%E2%84%A2\",true))()', 'https://discord.gg/uCq6dNAfRV')">
-                        <div class="script-icon">💎</div>
-                        <div class="script-name">99 Nights AutoFarm</div>
+                        <div class="script-name">99 Nights Script</div>
                     </div>
                     
                     <div class="script-button" onclick="showTSBModal()">
@@ -1253,7 +1248,7 @@
             </div>
         </div>
     </div>
-
+    
     <div id="scriptModal" class="modal">
         <div class="modal-content">
             <span class="close-button" onclick="closeScriptModal()">&times;</span>
@@ -1278,6 +1273,21 @@
         </div>
     </div>
 
+    <div id="nightsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeNightsModal()">&times;</span>
+            <h2 class="modal-title">Select 99 Nights Script</h2>
+            <div class="script-modal-buttons">
+                <button class="script-modal-button option" onclick="selectNightsScript('Hub')">
+                    🌙 99 Nights Hub
+                </button>
+                <button class="script-modal-button option" onclick="selectNightsScript('AutoFarm')">
+                    💎 99 Nights AutoFarm
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ==================== SCRIPT DATA ====================
         const scriptData = {
@@ -1293,11 +1303,11 @@
                 code: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/aquzeh/86b881d600cd8f7fdd007469e4a45965/raw/pvb"))()',
                 discordLink: 'https://discord.gg/uCq6dNAfRV'
             },
-            "99 Nights Script (Hub)": {
+            "99 Nights Hub": {
                 code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/Hub",true))()',
                 discordLink: 'https://discord.gg/uCq6dNAfRV'
             },
-            "99 Nights Script (AutoFarm)": {
+            "99 Nights AutoFarm": {
                 code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/DayFarm%E2%84%A2",true))()',
                 discordLink: 'https://discord.gg/uCq6dNAfRV'
             },
@@ -1311,10 +1321,13 @@
             }
         };
 
-        function showScriptModal(scriptName, scriptCode, discordLink) {
+        function showScriptModal(scriptName) {
             const modal = document.getElementById('scriptModal');
             const modalTitle = document.getElementById('scriptModalTitle');
             const modalContent = document.getElementById('scriptModalContent');
+            
+            const scriptInfo = scriptData[scriptName];
+            if (!scriptInfo) return;
             
             modalTitle.textContent = `${scriptName} - Options`;
             
@@ -1323,11 +1336,11 @@
                     <button class="script-modal-button copy" onclick="copyScriptCode('${scriptName}')">
                         📋 Get script now
                     </button>
-                    <a href="${discordLink}" class="script-modal-button discord" target="_blank">
+                    <a href="${scriptInfo.discordLink}" class="script-modal-button discord" target="_blank">
                         💬 Go to Discord
                     </a>
                 </div>
-                <div class="script-code">${scriptCode}</div>
+                <div class="script-code">${scriptInfo.code}</div>
                 <div class="copy-success" id="copySuccessMessage">✅ Script copied to clipboard!</div>
             `;
             
@@ -1359,10 +1372,32 @@
             closeTSBModal();
             
             const fullScriptName = `TSB ${scriptType}`;
-            const scriptCode = scriptData[fullScriptName].code;
-            const discordLink = scriptData[fullScriptName].discordLink;
+            showScriptModal(fullScriptName);
+        }
+
+        function show99NightsModal() {
+            const modal = document.getElementById('nightsModal');
             
-            showScriptModal(fullScriptName, scriptCode, discordLink);
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+        }
+
+        function closeNightsModal() {
+            const modal = document.getElementById('nightsModal');
+            
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+
+        function selectNightsScript(scriptType) {
+            closeNightsModal();
+            
+            const fullScriptName = `99 Nights ${scriptType}`;
+            showScriptModal(fullScriptName);
         }
 
         function copyScriptCode(scriptName) {
@@ -1584,6 +1619,7 @@
             const executerModal = document.getElementById('executerModal');
             const scriptModal = document.getElementById('scriptModal');
             const tsbModal = document.getElementById('tsbModal');
+            const nightsModal = document.getElementById('nightsModal');
             
             if (event.target === executerModal) {
                 closeExecuterModal();
@@ -1595,6 +1631,10 @@
             
             if (event.target === tsbModal) {
                 closeTSBModal();
+            }
+            
+            if (event.target === nightsModal) {
+                closeNightsModal();
             }
         }
     </script>
