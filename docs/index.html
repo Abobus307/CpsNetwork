@@ -1152,76 +1152,82 @@
     </div>
 
     <script>
-        // ==================== STATUS CONFIGURATION ====================
-        let UpdateStatus = {
-            "Volcano": "Not Updated",
-            "Velocity": "Not Updated", 
-            "Zenith": "Not Updated",
-            "Wave": "Updated",
-            "Volt": "Not Updated",
-            "Seliware": "Not Updated",
-            "Swift": "Not Updated",
-            "Valex": "Not Updated",
-            "Potassium": "Not Updated",
-            "Bunni.lol": "Not Updated",
-            "Sirhurt": "Not Updated",
-            "Hydrogen": "Not Updated",
-            "Macsploit": "Updated",
-            "Codex": "Updated",
-            "Cryptic": "Not Updated",
-            "Delta": "Updated",
-            "Delta-iOS": "Updated"
-        };
+    // ==================== STATUS CONFIGURATION ====================
+    let UpdateStatus = {
+        "Volcano": "Not Updated",
+        "Velocity": "Not Updated", 
+        "Zenith": "Not Updated",
+        "Wave": "Updated",
+        "Volt": "Not Updated",
+        "Seliware": "Not Updated",
+        "Swift": "Not Updated",
+        "Valex": "Not Updated",
+        "Potassium": "Not Updated",
+        "Bunni.lol": "Not Updated",
+        "Sirhurt": "Not Updated",
+        "Hydrogen": "Not Updated",
+        "Macsploit": "Updated",
+        "Codex": "Updated",
+        "Cryptic": "Not Updated",
+        "Delta": "Updated",
+        "Delta-iOS": "Updated"
+    };
 
-        let DetectStatus = {
-            "Volcano": "Undetected",
-            "Velocity": "Undetected",
-            "Zenith": "Undetected",
-            "Wave": "Undetected",
-            "Volt": "Undetected",
-            "Seliware": "Undetected",
-            "Swift": "Detected",
-            "Valex": "Undetected",
-            "Potassium": "Undetected",
-            "Bunni.lol": "Unknown",
-            "Sirhurt": "Undetected",
-            "Hydrogen": "Undetected",
-            "Macsploit": "Undetected",
-            "Codex": "Undetected",
-            "Cryptic": "Undetected",
-            "Delta": "Undetected",
-            "Delta-iOS": "Undetected"
-        };
+    let DetectStatus = {
+        "Volcano": "Undetected",
+        "Velocity": "Undetected",
+        "Zenith": "Undetected",
+        "Wave": "Undetected",
+        "Volt": "Undetected",
+        "Seliware": "Undetected",
+        "Swift": "Detected",
+        "Valex": "Undetected",
+        "Potassium": "Undetected",
+        "Bunni.lol": "Unknown",
+        "Sirhurt": "Undetected",
+        "Hydrogen": "Undetected",
+        "Macsploit": "Undetected",
+        "Codex": "Undetected",
+        "Cryptic": "Undetected",
+        "Delta": "Undetected",
+        "Delta-iOS": "Undetected"
+    };
 
-        function createStatusIndicator(type, status) {
-            const indicator = document.createElement('div');
-            
-            if (type === 'update') {
-                if (status === 'Updated') {
-                    indicator.className = 'status-indicator status-updated';
-                    indicator.textContent = 'Updated';
-                } else if (status === 'Not Updated') {
-                    indicator.className = 'status-indicator status-not-updated';
-                    indicator.textContent = 'Not Updated';
-                } else if (status === 'Unknown') {
-                    indicator.className = 'status-indicator status-unknown-update';
-                    indicator.textContent = 'Unknown';
-                } else {
-                    indicator.className = 'status-indicator status-unknown-update';
-                    indicator.textContent = 'Unknown';
-                }
+    function createStatusIndicator(type, status) {
+        const indicator = document.createElement('div');
+        
+        if (type === 'update') {
+            if (status === 'Updated') {
+                indicator.className = 'status-indicator status-updated';
+                indicator.textContent = 'Updated';
+            } else if (status === 'Not Updated') {
+                indicator.className = 'status-indicator status-not-updated';
+                indicator.textContent = 'Not Updated';
+            } else if (status === 'Unknown') {
+                indicator.className = 'status-indicator status-unknown-update';
+                indicator.textContent = 'Unknown';
             } else {
-                if (status === 'Detected') {
-                    indicator.className = 'status-indicator status-detected';
-                    indicator.textContent = 'Detected';
-                } else {
-                    indicator.className = 'status-indicator status-undetected';
-                    indicator.textContent = 'Undetected';
-                }
+                indicator.className = 'status-indicator status-unknown-update';
+                indicator.textContent = 'Unknown';
             }
-            
-            return indicator;
+        } else {
+            if (status === 'Detected') {
+                indicator.className = 'status-indicator status-detected';
+                indicator.textContent = 'Detected';
+            } else if (status === 'Undetected') {
+                indicator.className = 'status-indicator status-undetected';
+                indicator.textContent = 'Undetected';
+            } else if (status === 'Unknown') {
+                indicator.className = 'status-indicator status-unknown-update';
+                indicator.textContent = 'Unknown';
+            } else {
+                indicator.className = 'status-indicator status-undetected';
+                indicator.textContent = 'Undetected';
+            }
         }
+        
+        return indicator;
+    }
 
         function initializeStatuses() {
             for (const [executerName, updateStatus] of Object.entries(UpdateStatus)) {
