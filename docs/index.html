@@ -1268,7 +1268,7 @@
                         <div class="executer-card" onclick="showExecuterInfo('Potassium', 'Paid - $20 Lifetime', 'https://potassium.pro')">
                             <div class="executer-icon">🥔</div>
                             <div class="executer-name">Potassium</div>
-                            <div class="executer-price">Paid - $20 Lifetime</div>
+                            <div class="executer-price">Paid - $24.99 Lifetime</div>
                             <div class="status-container" id="status-Potassium"></div>
                             <div class="executer-website">potassium.pro</div>
                         </div>
@@ -1285,6 +1285,13 @@
                             <div class="executer-price">Paid - $2.80 Weekly</div>
                             <div class="status-container" id="status-Sirhurt"></div>
                             <div class="executer-website">sirhurt.net</div>
+                        </div>
+                        <div class="executer-card" onclick="showExecuterInfo('ChocoSploit', 'Paid - $10 Monthly (Private)', 'https://discord.gg/PwyPTUuxfZ')">
+                            <div class="executer-icon">🍫</div>
+                            <div class="executer-name">ChocoSploit</div>
+                            <div class="executer-price">Paid - $10 Monthly (Private)</div>
+                            <div class="status-container" id="status-ChocoSploit"></div>
+                            <div class="executer-website">discord.gg/PwyPTUuxfZ</div>
                         </div>
                     </div>
                 </div>
@@ -1376,6 +1383,18 @@
                 </div>
                 
                 <div class="changelog-list">
+                    <div class="changelog-item">
+                        <div class="changelog-header">
+                            <div class="changelog-type created">CREATED</div>
+                        </div>
+                        <div class="changelog-description">
+                            Added new injector ChocoSploit to the list of supported executors
+                        </div>
+                        <div class="changelog-details">
+                            Added ChocoSploit injector to the PC executors list.
+                        </div>
+                    </div>
+                    
                     <div class="changelog-item">
                         <div class="changelog-header">
                             <div class="changelog-type removed">REMOVED</div>
@@ -1611,7 +1630,8 @@
             "Codex": "Updated",
             "Cryptic": "Not Updated",
             "Delta": "Updated",
-            "Delta-iOS": "Updated"
+            "Delta-iOS": "Updated",
+            "ChocoSploit": "Unknown"
         };
 
         let DetectStatus = {
@@ -1630,7 +1650,8 @@
             "Codex": "Undetected",
             "Cryptic": "Undetected",
             "Delta": "Undetected",
-            "Delta-iOS": "Undetected"
+            "Delta-iOS": "Undetected",
+            "ChocoSploit": "Unknown"
         };
 
         function createStatusIndicator(type, status) {
