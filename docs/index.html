@@ -27,6 +27,51 @@
             position: relative;
         }
 
+        .technical-issues {
+            display: none;
+            background: rgba(30, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            border: 1px solid rgba(120, 60, 60, 0.3);
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .technical-issues.active {
+            display: block;
+        }
+
+        .issues-icon {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            color: #a86b6b;
+        }
+
+        .issues-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #b38e5d;
+        }
+
+        .issues-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #e0e0e0;
+        }
+
+        .main-content {
+            display: block;
+        }
+
+        .main-content.hidden {
+            display: none;
+        }
+
         .logo {
             position: absolute;
             top: 0;
@@ -992,505 +1037,572 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="1760377122964.png" alt="CPS Network Logo" class="logo">
-        
-        <div class="header">
-            <h1>💸 CPS Network</h1>
-            <p class="subtitle">Premium Services & Community</p>
+    <div class="technical-issues">
+        <div class="issues-icon">🔧</div>
+        <h1 class="issues-title">Technical Issues</h1>
+        <p class="issues-text">We are currently experiencing some technical difficulties. Our team is working hard to fix the issues and we will be back online shortly. Thank you for your patience.</p>
+        <div class="issues-text">We apologize for any inconvenience caused.</div>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <img src="1760377122964.png" alt="CPS Network Logo" class="logo">
             
-            <div class="tabs">
-                <button class="tab-button active" data-tab="premium">Premium</button>
-                <button class="tab-button" data-tab="discord">Discord Info</button>
-                <button class="tab-button" data-tab="scripts">Script List</button>
-                <button class="tab-button" data-tab="executers">Supported Executers</button>
-                <button class="tab-button" data-tab="changelogs">Changelogs</button>
-            </div>
-        </div>
-
-        <div class="tab-content active" id="premium-tab">
-            <div class="service">
-                <h2 class="service-title">🪓 99 NIGHTS HUB & DIAMONDS/DAYS FARM</h2>
+            <div class="header">
+                <h1>💸 CPS Network</h1>
+                <p class="subtitle">Premium Services & Community</p>
                 
-                <div class="plan">
-                    <div class="plan-header">
-                        <span class="plan-name">👑 Lifetime Plan</span>
-                    </div>
-                    <div class="price">💲 950 Robux</div>
-                </div>
-                
-                <div class="plan">
-                    <div class="plan-header">
-                        <span class="plan-name">✨ Monthly Plan</span>
-                    </div>
-                    <div class="price">💲 550 Robux</div>
-                    <div class="features">
-                        <div class="feature">💎 2 Server Boosts</div>
-                    </div>
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="premium">Premium</button>
+                    <button class="tab-button" data-tab="discord">Discord Info</button>
+                    <button class="tab-button" data-tab="scripts">Script List</button>
+                    <button class="tab-button" data-tab="executers">Supported Executers</button>
+                    <button class="tab-button" data-tab="changelogs">Changelogs</button>
                 </div>
             </div>
 
-            <div class="service">
-                <h2 class="service-title">⚽ TOUCH FOOTBALL KEYLESS</h2>
-                
-                <div class="plan">
-                    <div class="plan-header">
-                        <span class="plan-name">👑 Lifetime Plan</span>
-                    </div>
-                    <div class="price">💲 1450 Robux</div>
-                    <div class="price">💸 $13.99 PayPal</div>
-                </div>
-                
-                <div class="plan">
-                    <div class="plan-header">
-                        <span class="plan-name">✨ Monthly Plan</span>
-                    </div>
-                    <div class="price">💲 550 Robux</div>
-                    <div class="price">💸 $4.99 PayPal</div>
-                    <div class="features">
-                        <div class="feature">💎 2 Server Boosts</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="premium-perks">
-                <h2 class="perks-title">✨ Premium Perks</h2>
-                <div class="perks-grid">
-                    <div class="perk-card">
-                        <div class="perk-icon">🪓</div>
-                        <div class="perk-name">99 Nights Hub Gui</div>
-                        <div class="perk-features">
-                            <div class="perk-feature">✅ Keyless</div>
-                            <div class="perk-feature">✅ Priority Support</div>
+            <div class="tab-content active" id="premium-tab">
+                <div class="service">
+                    <h2 class="service-title">🪓 99 NIGHTS HUB & DIAMONDS/DAYS FARM</h2>
+                    
+                    <div class="plan">
+                        <div class="plan-header">
+                            <span class="plan-name">👑 Lifetime Plan</span>
                         </div>
+                        <div class="price">💲 950 Robux</div>
                     </div>
                     
-                    <div class="perk-card">
-                        <div class="perk-icon">💎</div>
-                        <div class="perk-name">Diamonds & Days Farm</div>
-                        <div class="perk-features">
-                            <div class="perk-feature">✅ Keyless</div>
-                            <div class="perk-feature">✅ Priority Support</div>
+                    <div class="plan">
+                        <div class="plan-header">
+                            <span class="plan-name">✨ Monthly Plan</span>
                         </div>
-                    </div>
-                    
-                    <div class="perk-card">
-                        <div class="perk-icon">⚽</div>
-                        <div class="perk-name">Touch Football</div>
-                        <div class="perk-features">
-                            <div class="perk-feature">✅ Keyless</div>
-                            <div class="perk-feature">✅ Priority Support</div>
+                        <div class="price">💲 550 Robux</div>
+                        <div class="features">
+                            <div class="feature">💎 2 Server Boosts</div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="notes-container">
-                <div class="note-row">
-                    <div class="warning">⚠️ All robux payments are done "tax covered"!</div>
-                    <div class="warning">ℹ️ No refunds.</div>
-                    <div class="purchase-info">💸 Open A Ticket To Purchase In Discord Server</div>
-                    <a href="https://discord.gg/uCq6dNAfRV" class="main-server-button" target="_blank">
-                        🏠 Main Server
-                    </a>
-                    <a href="https://discord.gg/FhK8UGTtU8" class="support-button" target="_blank">
-                        🛠️ Support Server
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="tab-content" id="discord-tab">
-            <div class="discord-container">
-                <div class="discord-widget">
-                    <div class="discord-icon">🎮</div>
-                    <h2 class="discord-title">Join Our Discord Community</h2>
-                    <p class="discord-description">
-                        Connect with our growing community of gamers, get support for our products, 
-                        stay updated with the latest news, and participate in exclusive events!
-                    </p>
+                <div class="service">
+                    <h2 class="service-title">⚽ TOUCH FOOTBALL KEYLESS</h2>
                     
-                    <div class="button-group">
-                        <a href="https://discord.gg/uCq6dNAfRV" class="discord-button" target="_blank">
-                            Join Discord Server
+                    <div class="plan">
+                        <div class="plan-header">
+                            <span class="plan-name">👑 Lifetime Plan</span>
+                        </div>
+                        <div class="price">💲 1450 Robux</div>
+                        <div class="price">💸 $13.99 PayPal</div>
+                    </div>
+                    
+                    <div class="plan">
+                        <div class="plan-header">
+                            <span class="plan-name">✨ Monthly Plan</span>
+                        </div>
+                        <div class="price">💲 550 Robux</div>
+                        <div class="price">💸 $4.99 PayPal</div>
+                        <div class="features">
+                            <div class="feature">💎 2 Server Boosts</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-perks">
+                    <h2 class="perks-title">✨ Premium Perks</h2>
+                    <div class="perks-grid">
+                        <div class="perk-card">
+                            <div class="perk-icon">🪓</div>
+                            <div class="perk-name">99 Nights Hub Gui</div>
+                            <div class="perk-features">
+                                <div class="perk-feature">✅ Keyless</div>
+                                <div class="perk-feature">✅ Priority Support</div>
+                            </div>
+                        </div>
+                        
+                        <div class="perk-card">
+                            <div class="perk-icon">💎</div>
+                            <div class="perk-name">Diamonds & Days Farm</div>
+                            <div class="perk-features">
+                                <div class="perk-feature">✅ Keyless</div>
+                                <div class="perk-feature">✅ Priority Support</div>
+                            </div>
+                        </div>
+                        
+                        <div class="perk-card">
+                            <div class="perk-icon">⚽</div>
+                            <div class="perk-name">Touch Football</div>
+                            <div class="perk-features">
+                                <div class="perk-feature">✅ Keyless</div>
+                                <div class="perk-feature">✅ Priority Support</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notes-container">
+                    <div class="note-row">
+                        <div class="warning">⚠️ All robux payments are done "tax covered"!</div>
+                        <div class="warning">ℹ️ No refunds.</div>
+                        <div class="purchase-info">💸 Open A Ticket To Purchase In Discord Server</div>
+                        <a href="https://discord.gg/uCq6dNAfRV" class="main-server-button" target="_blank">
+                            🏠 Main Server
                         </a>
-                        <a href="https://discord.gg/FhK8UGTtU8" class="support-server-button" target="_blank">
+                        <a href="https://discord.gg/FhK8UGTtU8" class="support-button" target="_blank">
                             🛠️ Support Server
                         </a>
                     </div>
                 </div>
-                
-                <div class="discord-features">
-                    <div class="feature-card">
-                        <div class="feature-icon">💬</div>
-                        <h3>Active Community</h3>
-                        <p>Chat with other members and share your experiences</p>
+            </div>
+
+            <div class="tab-content" id="discord-tab">
+                <div class="discord-container">
+                    <div class="discord-widget">
+                        <div class="discord-icon">🎮</div>
+                        <h2 class="discord-title">Join Our Discord Community</h2>
+                        <p class="discord-description">
+                            Connect with our growing community of gamers, get support for our products, 
+                            stay updated with the latest news, and participate in exclusive events!
+                        </p>
+                        
+                        <div class="button-group">
+                            <a href="https://discord.gg/uCq6dNAfRV" class="discord-button" target="_blank">
+                                Join Discord Server
+                            </a>
+                            <a href="https://discord.gg/FhK8UGTtU8" class="support-server-button" target="_blank">
+                                🛠️ Support Server
+                            </a>
+                        </div>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🛠️</div>
-                        <h3>Quick Support</h3>
-                        <p>Get help with any issues or questions you might have</p>
+                    
+                    <div class="discord-features">
+                        <div class="feature-card">
+                            <div class="feature-icon">💬</div>
+                            <h3>Active Community</h3>
+                            <p>Chat with other members and share your experiences</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🛠️</div>
+                            <h3>Quick Support</h3>
+                            <p>Get help with any issues or questions you might have</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🚀</div>
+                            <h3>Latest Updates</h3>
+                            <p>Be the first to know about new features and products</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Exclusive Content</h3>
+                            <p>Access special channels and content for members</p>
+                        </div>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🚀</div>
-                        <h3>Latest Updates</h3>
-                        <p>Be the first to know about new features and products</p>
+                </div>
+            </div>
+
+            <div class="tab-content" id="scripts-tab">
+                <div class="scripts-container">
+                    <h2 class="service-title">📜 Available Scripts</h2>
+                    <p style="margin-bottom: 30px; opacity: 0.8; color: #c0c0c0;">Click on any script to get options</p>
+                    
+                    <div class="script-grid">
+                        <div class="script-button" onclick="showScriptModal('Universal Gui')">
+                            <div class="script-icon">🌐</div>
+                            <div class="script-name">Universal GUI Script</div>
+                        </div>
+                        
+                        <div class="script-button" onclick="showScriptModal('Touch Football Script')">
+                            <div class="script-icon">⚽</div>
+                            <div class="script-name">Touch Football Script</div>
+                        </div>
+                        
+                        <div class="script-button" onclick="showScriptModal('PVB Script')">
+                            <div class="script-icon">🛡️</div>
+                            <div class="script-name">PVB Script</div>
+                        </div>
+                        
+                        <div class="script-button" onclick="show99NightsModal()">
+                            <div class="script-icon">🌙</div>
+                            <div class="script-name">99 Nights Script</div>
+                        </div>
+                        
+                        <div class="script-button" onclick="showTSBModal()">
+                            <div class="script-icon">🏈</div>
+                            <div class="script-name">TSB Script</div>
+                        </div>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <h3>Exclusive Content</h3>
-                        <p>Access special channels and content for members</p>
+
+                    <div class="script-warning">
+                        <h3>⚠️ Important Notice</h3>
+                        <p>This list is NOT automatically updated and may not include newly added scripts. 
+                        Always check the Discord server for the most current script list and updates.</p>
+                    </div>
+
+                    <div class="script-support">
+                        <h3 style="margin-bottom: 15px; color: #b38e5d;">🐛 Found a bug or script not working?</h3>
+                        <p style="margin-bottom: 20px; opacity: 0.8; color: #c0c0c0;">Open a ticket on our support server and our team will help you!</p>
+                        <a href="https://discord.gg/FhK8UGTtU8" class="support-server-button" target="_blank">
+                            🛠️ Open Support Ticket
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="executers-tab">
+                <div class="executers-container">
+                    <h2 class="service-title">⚙️ Supported Executers</h2>
+                    <p style="margin-bottom: 30px; opacity: 0.8; color: #c0c0c0;">Click on any executor to get more information</p>
+                    
+                    <div class="status-check-notice">
+                        <h3>🔍 Status Information</h3>
+                        <p>Statuses are not updated automatically and may not be accurate. Always check <strong>weao.xyz</strong> for accurate and current executor statuses.</p>
+                        <a href="https://weao.xyz/" class="status-check-link" target="_blank">
+                            📊 Check accurate statuses on weao.xyz
+                        </a>
+                    </div>
+                    
+                    <div class="platform-tabs">
+                        <button class="platform-tab active" data-platform="pc">💻 PC</button>
+                        <button class="platform-tab" data-platform="mac">🍎 Mac</button>
+                        <button class="platform-tab" data-platform="android">📱 Android</button>
+                        <button class="platform-tab" data-platform="ios">📱 iOS</button>
+                    </div>
+                    
+                    <div class="platform-content active" id="pc-content">
+                        <h3 style="margin-bottom: 20px; color: #b38e5d;">PC Executers</h3>
+                        <div class="executers-grid">
+                            <div class="executer-card" onclick="showExecuterInfo('Volcano', 'Free (Key System)', 'https://volcano.wtf')">
+                                <div class="executer-icon">🌋</div>
+                                <div class="executer-name">Volcano</div>
+                                <div class="executer-price">Free (Key System)</div>
+                                <div class="status-container" id="status-Volcano"></div>
+                                <div class="executer-website">volcano.wtf</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Velocity', 'Free', 'https://getvelocity.lol')">
+                                <div class="executer-icon">⚡</div>
+                                <div class="executer-name">Velocity</div>
+                                <div class="executer-price">Free</div>
+                                <div class="status-container" id="status-Velocity"></div>
+                                <div class="executer-website">getvelocity.lol</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Wave', 'Paid - $7.49 Weekly', 'https://getwave.gg')">
+                                <div class="executer-icon">🌊</div>
+                                <div class="executer-name">Wave</div>
+                                <div class="executer-price">Paid - $7.49 Weekly</div>
+                                <div class="status-container" id="status-Wave"></div>
+                                <div class="executer-website">getwave.gg</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Volt', 'Paid - $8 Weekly', 'https://volt.bz')">
+                                <div class="executer-icon">🔌</div>
+                                <div class="executer-name">Volt</div>
+                                <div class="executer-price">Paid - $8 Weekly</div>
+                                <div class="status-container" id="status-Volt"></div>
+                                <div class="executer-website">volt.bz</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Seliware', 'Paid - $9.99 Monthly', 'https://seliware.com')">
+                                <div class="executer-icon">🛡️</div>
+                                <div class="executer-name">Seliware</div>
+                                <div class="executer-price">Paid - $9.99 Monthly</div>
+                                <div class="status-container" id="status-Seliware"></div>
+                                <div class="executer-website">seliware.com</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Swift', 'Free (Key System)', 'https://getswift.vip')">
+                                <div class="executer-icon">💨</div>
+                                <div class="executer-name">Swift</div>
+                                <div class="executer-price">Free (Key System)</div>
+                                <div class="status-container" id="status-Swift"></div>
+                                <div class="executer-website">getswift.vip</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Valex', 'Free (Key System)', 'https://valex.io')">
+                                <div class="executer-icon">🔮</div>
+                                <div class="executer-name">Valex</div>
+                                <div class="executer-price">Free (Key System)</div>
+                                <div class="status-container" id="status-Valex"></div>
+                                <div class="executer-website">valex.io</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Potassium', 'Paid - $24.99 Lifetime', 'https://potassium.pro')">
+                                <div class="executer-icon">🥔</div>
+                                <div class="executer-name">Potassium</div>
+                                <div class="executer-price">Paid - $24.99 Lifetime</div>
+                                <div class="status-container" id="status-Potassium"></div>
+                                <div class="executer-website">potassium.pro</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Bunni.lol', 'Free (Key System)', 'https://realbunni.com')">
+                                <div class="executer-icon">🐰</div>
+                                <div class="executer-name">Bunni.lol</div>
+                                <div class="executer-price">Free (Key System)</div>
+                                <div class="status-container" id="status-Bunni.lol"></div>
+                                <div class="executer-website">realbunni.com</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Sirhurt', 'Paid - $2.80 Weekly', 'https://sirhurt.net')">
+                                <div class="executer-icon">👑</div>
+                                <div class="executer-name">Sirhurt</div>
+                                <div class="executer-price">Paid - $2.80 Weekly</div>
+                                <div class="status-container" id="status-Sirhurt"></div>
+                                <div class="executer-website">sirhurt.net</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('ChocoSploit', 'Paid - $10 Monthly (Private)', 'https://discord.gg/PwyPTUuxfZ')">
+                                <div class="executer-icon">🍫</div>
+                                <div class="executer-name">ChocoSploit</div>
+                                <div class="executer-price">Paid - $10 Monthly (Private)</div>
+                                <div class="status-container" id="status-ChocoSploit"></div>
+                                <div class="executer-website">discord.gg/PwyPTUuxfZ</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="platform-content" id="mac-content">
+                        <h3 style="margin-bottom: 20px; color: #b38e5d;">Mac Executers</h3>
+                        <div class="executers-grid">
+                            <div class="executer-card" onclick="showExecuterInfo('Hydrogen', 'Free (Key System)', 'https://hydrogen.lat')">
+                                <div class="executer-icon">💧</div>
+                                <div class="executer-name">Hydrogen</div>
+                                <div class="executer-price">Free (Key System)</div>
+                                <div class="status-container" id="status-Hydrogen"></div>
+                                <div class="executer-website">hydrogen.lat</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Macsploit', 'Paid - $8 Lifetime', 'https://abyssdigital.xyz')">
+                                <div class="executer-icon">🍎</div>
+                                <div class="executer-name">Macsploit</div>
+                                <div class="executer-price">Paid - $8 Lifetime</div>
+                                <div class="status-container" id="status-Macsploit"></div>
+                                <div class="executer-website">abyssdigital.xyz</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Cryptic', 'Paid - $17.40 Lifetime', 'https://reapstore.mysellauth.com/product/cryptic-mac')">
+                                <div class="executer-icon">🔐</div>
+                                <div class="executer-name">Cryptic</div>
+                                <div class="executer-price">Paid - $17.40 Lifetime</div>
+                                <div class="status-container" id="status-Cryptic"></div>
+                                <div class="executer-website">reapstore.mysellauth.com</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="platform-content" id="android-content">
+                        <h3 style="margin-bottom: 20px; color: #b38e5d;">Android Executers</h3>
+                        <div class="executers-grid">
+                            <div class="executer-card" onclick="showExecuterInfo('Codex', 'Free', 'https://codex.lol')">
+                                <div class="executer-icon">📜</div>
+                                <div class="executer-name">Codex</div>
+                                <div class="executer-price">Free</div>
+                                <div class="status-container" id="status-Codex"></div>
+                                <div class="executer-website">codex.lol</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Cryptic Android', 'Free (Key System)', 'https://getcryptic.net')">
+                                <div class="executer-icon">🔐</div>
+                                <div class="executer-name">Cryptic</div>
+                                <div class="executer-price">Free (Key System)</div>
+                                <div class="status-container" id="status-Cryptic-Android"></div>
+                                <div class="executer-website">getcryptic.net</div>
+                            </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Delta', 'Free (Key System)', 'https://deltaexploits.gg')">
+                                <div class="executer-icon">Δ</div>
+                                <div class="executer-name">Delta</div>
+                                <div class="executer-price">Free (Key System)</div>
+                                <div class="status-container" id="status-Delta"></div>
+                                <div class="executer-website">deltaexploits.gg</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="platform-content" id="ios-content">
+                        <h3 style="margin-bottom: 20px; color: #b38e5d;">iOS Executers</h3>
+                        <div class="executers-grid">
+                            <div class="executer-card" onclick="showExecuterInfo('Delta iOS', 'Free (Key System)', 'https://deltaexploits.gg')">
+                                <div class="executer-icon">Δ</div>
+                                <div class="executer-name">Delta</div>
+                                <div class="executer-price">Free (Key System)</div>
+                                <div class="status-container" id="status-Delta-iOS"></div>
+                                <div class="executer-website">deltaexploits.gg</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="changelogs-tab">
+                <div class="changelogs-container">
+                    <h2 class="service-title">📃 Changelogs</h2>
+                    <p style="margin-bottom: 30px; opacity: 0.8; color: #c0c0c0;">CPS Network website change history</p>
+                    
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color legend-added"></div>
+                            <span>Added - New features or content added</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-removed"></div>
+                            <span>Removed - Features or content removed</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-fixed"></div>
+                            <span>Fixed - Bugs or issues resolved</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-coming"></div>
+                            <span>Coming - Upcoming features or changes</span>
+                        </div>
+                    </div>
+                    
+                    <div class="changelog-list">
+                        <div class="changelog-item">
+                            <div class="changelog-header">
+                                <div class="changelog-type added">ADDED</div>
+                            </div>
+                            <div class="changelog-description">
+                                Added new injector Cryptic to the list of supported executors for Mac
+                            </div>
+                            <div class="changelog-details">
+                                Added Cryptic injector to the Mac executors list.
+                            </div>
+                        </div>
+                        
+                        <div class="changelog-item">
+                            <div class="changelog-header">
+                                <div class="changelog-type added">ADDED</div>
+                            </div>
+                            <div class="changelog-description">
+                                Added new injector ChocoSploit to the list of supported executors
+                            </div>
+                            <div class="changelog-details">
+                                Added ChocoSploit injector to the PC executors list.
+                            </div>
+                        </div>
+                        
+                        <div class="changelog-item">
+                            <div class="changelog-header">
+                                <div class="changelog-type removed">REMOVED</div>
+                            </div>
+                            <div class="changelog-description">
+                                Removed Zenith from the list of supported executors
+                            </div>
+                            <div class="changelog-details">
+                                Zenith no longer works and has been removed from all executor lists.
+                            </div>
+                        </div>
+                        
+                        <div class="changelog-item">
+                            <div class="changelog-header">
+                                <div class="changelog-type added">ADDED</div>
+                            </div>
+                            <div class="changelog-description">
+                                Added CPS Network website
+                            </div>
+                            <div class="changelog-details">
+                                Initial website design added with Premium, Discord Info, Script List and Supported Executers tabs.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="tab-content" id="scripts-tab">
-            <div class="scripts-container">
-                <h2 class="service-title">📜 Available Scripts</h2>
-                <p style="margin-bottom: 30px; opacity: 0.8; color: #c0c0c0;">Click on any script to get options</p>
-                
-                <div class="script-grid">
-                    <div class="script-button" onclick="showScriptModal('Universal Gui')">
-                        <div class="script-icon">🌐</div>
-                        <div class="script-name">Universal GUI Script</div>
-                    </div>
-                    
-                    <div class="script-button" onclick="showScriptModal('Touch Football Script')">
-                        <div class="script-icon">⚽</div>
-                        <div class="script-name">Touch Football Script</div>
-                    </div>
-                    
-                    <div class="script-button" onclick="showScriptModal('PVB Script')">
-                        <div class="script-icon">🛡️</div>
-                        <div class="script-name">PVB Script</div>
-                    </div>
-                    
-                    <div class="script-button" onclick="show99NightsModal()">
-                        <div class="script-icon">🌙</div>
-                        <div class="script-name">99 Nights Script</div>
-                    </div>
-                    
-                    <div class="script-button" onclick="showTSBModal()">
-                        <div class="script-icon">🏈</div>
-                        <div class="script-name">TSB Script</div>
-                    </div>
+        <div id="executerModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeExecuterModal()">&times;</span>
+                <h2 class="modal-title" id="executerModalTitle">Executer Info</h2>
+                <div id="executerModalContent">
                 </div>
-
-                <div class="script-warning">
-                    <h3>⚠️ Important Notice</h3>
-                    <p>This list is NOT automatically updated and may not include newly added scripts. 
-                    Always check the Discord server for the most current script list and updates.</p>
-                </div>
-
-                <div class="script-support">
-                    <h3 style="margin-bottom: 15px; color: #b38e5d;">🐛 Found a bug or script not working?</h3>
-                    <p style="margin-bottom: 20px; opacity: 0.8; color: #c0c0c0;">Open a ticket on our support server and our team will help you!</p>
-                    <a href="https://discord.gg/FhK8UGTtU8" class="support-server-button" target="_blank">
-                        🛠️ Open Support Ticket
-                    </a>
+            </div>
+        </div>
+        
+        <div id="scriptModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeScriptModal()">&times;</span>
+                <h2 class="modal-title" id="scriptModalTitle">Script Options</h2>
+                <div id="scriptModalContent">
                 </div>
             </div>
         </div>
 
-        <div class="tab-content" id="executers-tab">
-            <div class="executers-container">
-                <h2 class="service-title">⚙️ Supported Executers</h2>
-                <p style="margin-bottom: 30px; opacity: 0.8; color: #c0c0c0;">Click on any executor to get more information</p>
-                
-                <div class="status-check-notice">
-                    <h3>🔍 Status Information</h3>
-                    <p>Statuses are not updated automatically and may not be accurate. Always check <strong>weao.xyz</strong> for accurate and current executor statuses.</p>
-                    <a href="https://weao.xyz/" class="status-check-link" target="_blank">
-                        📊 Check accurate statuses on weao.xyz
-                    </a>
-                </div>
-                
-                <div class="platform-tabs">
-                    <button class="platform-tab active" data-platform="pc">💻 PC</button>
-                    <button class="platform-tab" data-platform="mac">🍎 Mac</button>
-                    <button class="platform-tab" data-platform="android">📱 Android</button>
-                    <button class="platform-tab" data-platform="ios">📱 iOS</button>
-                </div>
-                
-                <div class="platform-content active" id="pc-content">
-                    <h3 style="margin-bottom: 20px; color: #b38e5d;">PC Executers</h3>
-                    <div class="executers-grid">
-                        <div class="executer-card" onclick="showExecuterInfo('Volcano', 'Free (Key System)', 'https://volcano.wtf')">
-                            <div class="executer-icon">🌋</div>
-                            <div class="executer-name">Volcano</div>
-                            <div class="executer-price">Free (Key System)</div>
-                            <div class="status-container" id="status-Volcano"></div>
-                            <div class="executer-website">volcano.wtf</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('Velocity', 'Free', 'https://getvelocity.lol')">
-                            <div class="executer-icon">⚡</div>
-                            <div class="executer-name">Velocity</div>
-                            <div class="executer-price">Free</div>
-                            <div class="status-container" id="status-Velocity"></div>
-                            <div class="executer-website">getvelocity.lol</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('Wave', 'Paid - $7.49 Weekly', 'https://getwave.gg')">
-                            <div class="executer-icon">🌊</div>
-                            <div class="executer-name">Wave</div>
-                            <div class="executer-price">Paid - $7.49 Weekly</div>
-                            <div class="status-container" id="status-Wave"></div>
-                            <div class="executer-website">getwave.gg</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('Volt', 'Paid - $8 Weekly', 'https://volt.bz')">
-                            <div class="executer-icon">🔌</div>
-                            <div class="executer-name">Volt</div>
-                            <div class="executer-price">Paid - $8 Weekly</div>
-                            <div class="status-container" id="status-Volt"></div>
-                            <div class="executer-website">volt.bz</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('Seliware', 'Paid - $9.99 Monthly', 'https://seliware.com')">
-                            <div class="executer-icon">🛡️</div>
-                            <div class="executer-name">Seliware</div>
-                            <div class="executer-price">Paid - $9.99 Monthly</div>
-                            <div class="status-container" id="status-Seliware"></div>
-                            <div class="executer-website">seliware.com</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('Swift', 'Free (Key System)', 'https://getswift.vip')">
-                            <div class="executer-icon">💨</div>
-                            <div class="executer-name">Swift</div>
-                            <div class="executer-price">Free (Key System)</div>
-                            <div class="status-container" id="status-Swift"></div>
-                            <div class="executer-website">getswift.vip</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('Valex', 'Free (Key System)', 'https://valex.io')">
-                            <div class="executer-icon">🔮</div>
-                            <div class="executer-name">Valex</div>
-                            <div class="executer-price">Free (Key System)</div>
-                            <div class="status-container" id="status-Valex"></div>
-                            <div class="executer-website">valex.io</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('Potassium', 'Paid - $24.99 Lifetime', 'https://potassium.pro')">
-                            <div class="executer-icon">🥔</div>
-                            <div class="executer-name">Potassium</div>
-                            <div class="executer-price">Paid - $24.99 Lifetime</div>
-                            <div class="status-container" id="status-Potassium"></div>
-                            <div class="executer-website">potassium.pro</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('Bunni.lol', 'Free (Key System)', 'https://realbunni.com')">
-                            <div class="executer-icon">🐰</div>
-                            <div class="executer-name">Bunni.lol</div>
-                            <div class="executer-price">Free (Key System)</div>
-                            <div class="status-container" id="status-Bunni.lol"></div>
-                            <div class="executer-website">realbunni.com</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('Sirhurt', 'Paid - $2.80 Weekly', 'https://sirhurt.net')">
-                            <div class="executer-icon">👑</div>
-                            <div class="executer-name">Sirhurt</div>
-                            <div class="executer-price">Paid - $2.80 Weekly</div>
-                            <div class="status-container" id="status-Sirhurt"></div>
-                            <div class="executer-website">sirhurt.net</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('ChocoSploit', 'Paid - $10 Monthly (Private)', 'https://discord.gg/PwyPTUuxfZ')">
-                            <div class="executer-icon">🍫</div>
-                            <div class="executer-name">ChocoSploit</div>
-                            <div class="executer-price">Paid - $10 Monthly (Private)</div>
-                            <div class="status-container" id="status-ChocoSploit"></div>
-                            <div class="executer-website">discord.gg/PwyPTUuxfZ</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="platform-content" id="mac-content">
-                    <h3 style="margin-bottom: 20px; color: #b38e5d;">Mac Executers</h3>
-                    <div class="executers-grid">
-                        <div class="executer-card" onclick="showExecuterInfo('Hydrogen', 'Free (Key System)', 'https://hydrogen.lat')">
-                            <div class="executer-icon">💧</div>
-                            <div class="executer-name">Hydrogen</div>
-                            <div class="executer-price">Free (Key System)</div>
-                            <div class="status-container" id="status-Hydrogen"></div>
-                            <div class="executer-website">hydrogen.lat</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('Macsploit', 'Paid - $8 Lifetime', 'https://abyssdigital.xyz')">
-                            <div class="executer-icon">🍎</div>
-                            <div class="executer-name">Macsploit</div>
-                            <div class="executer-price">Paid - $8 Lifetime</div>
-                            <div class="status-container" id="status-Macsploit"></div>
-                            <div class="executer-website">abyssdigital.xyz</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('Cryptic', 'Paid - $17.40 Lifetime', 'https://reapstore.mysellauth.com/product/cryptic-mac')">
-                            <div class="executer-icon">🔐</div>
-                            <div class="executer-name">Cryptic</div>
-                            <div class="executer-price">Paid - $17.40 Lifetime</div>
-                            <div class="status-container" id="status-Cryptic"></div>
-                            <div class="executer-website">reapstore.mysellauth.com</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="platform-content" id="android-content">
-                    <h3 style="margin-bottom: 20px; color: #b38e5d;">Android Executers</h3>
-                    <div class="executers-grid">
-                        <div class="executer-card" onclick="showExecuterInfo('Codex', 'Free', 'https://codex.lol')">
-                            <div class="executer-icon">📜</div>
-                            <div class="executer-name">Codex</div>
-                            <div class="executer-price">Free</div>
-                            <div class="status-container" id="status-Codex"></div>
-                            <div class="executer-website">codex.lol</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('Cryptic Android', 'Free (Key System)', 'https://getcryptic.net')">
-                            <div class="executer-icon">🔐</div>
-                            <div class="executer-name">Cryptic</div>
-                            <div class="executer-price">Free (Key System)</div>
-                            <div class="status-container" id="status-Cryptic-Android"></div>
-                            <div class="executer-website">getcryptic.net</div>
-                        </div>
-                        <div class="executer-card" onclick="showExecuterInfo('Delta', 'Free (Key System)', 'https://deltaexploits.gg')">
-                            <div class="executer-icon">Δ</div>
-                            <div class="executer-name">Delta</div>
-                            <div class="executer-price">Free (Key System)</div>
-                            <div class="status-container" id="status-Delta"></div>
-                            <div class="executer-website">deltaexploits.gg</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="platform-content" id="ios-content">
-                    <h3 style="margin-bottom: 20px; color: #b38e5d;">iOS Executers</h3>
-                    <div class="executers-grid">
-                        <div class="executer-card" onclick="showExecuterInfo('Delta iOS', 'Free (Key System)', 'https://deltaexploits.gg')">
-                            <div class="executer-icon">Δ</div>
-                            <div class="executer-name">Delta</div>
-                            <div class="executer-price">Free (Key System)</div>
-                            <div class="status-container" id="status-Delta-iOS"></div>
-                            <div class="executer-website">deltaexploits.gg</div>
-                        </div>
-                    </div>
+        <div id="tsbModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeTSBModal()">&times;</span>
+                <h2 class="modal-title">Select TSB Script</h2>
+                <div class="script-modal-buttons">
+                    <button class="script-modal-button option" onclick="selectTSBScript('Auto Block')">
+                        🛡️ TSB Auto Block
+                    </button>
+                    <button class="script-modal-button option" onclick="selectTSBScript('Auto Techs')">
+                        🤖 TSB Auto Techs
+                    </button>
                 </div>
             </div>
         </div>
 
-        <div class="tab-content" id="changelogs-tab">
-            <div class="changelogs-container">
-                <h2 class="service-title">📃 Changelogs</h2>
-                <p style="margin-bottom: 30px; opacity: 0.8; color: #c0c0c0;">CPS Network website change history</p>
-                
-                <div class="legend">
-                    <div class="legend-item">
-                        <div class="legend-color legend-added"></div>
-                        <span>Added - New features or content added</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color legend-removed"></div>
-                        <span>Removed - Features or content removed</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color legend-fixed"></div>
-                        <span>Fixed - Bugs or issues resolved</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color legend-coming"></div>
-                        <span>Coming - Upcoming features or changes</span>
-                    </div>
+        <div id="nightsModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeNightsModal()">&times;</span>
+                <h2 class="modal-title">Select 99 Nights Script</h2>
+                <div class="script-modal-buttons">
+                    <button class="script-modal-button option" onclick="selectNightsScript('Hub')">
+                        🌙 99 Nights Hub
+                    </button>
+                    <button class="script-modal-button option" onclick="selectNightsScript('AutoFarm')">
+                        💎 99 Nights AutoFarm
+                    </button>
                 </div>
-                
-                <div class="changelog-list">
-                    <div class="changelog-item">
-                        <div class="changelog-header">
-                            <div class="changelog-type added">ADDED</div>
-                        </div>
-                        <div class="changelog-description">
-                            Added new injector Cryptic to the list of supported executors for Mac
-                        </div>
-                        <div class="changelog-details">
-                            Added Cryptic injector to the Mac executors list.
-                        </div>
-                    </div>
-                    
-                    <div class="changelog-item">
-                        <div class="changelog-header">
-                            <div class="changelog-type added">ADDED</div>
-                        </div>
-                        <div class="changelog-description">
-                            Added new injector ChocoSploit to the list of supported executors
-                        </div>
-                        <div class="changelog-details">
-                            Added ChocoSploit injector to the PC executors list.
-                        </div>
-                    </div>
-                    
-                    <div class="changelog-item">
-                        <div class="changelog-header">
-                            <div class="changelog-type removed">REMOVED</div>
-                        </div>
-                        <div class="changelog-description">
-                            Removed Zenith from the list of supported executors
-                        </div>
-                        <div class="changelog-details">
-                            Zenith no longer works and has been removed from all executor lists.
-                        </div>
-                    </div>
-                    
-                    <div class="changelog-item">
-                        <div class="changelog-header">
-                            <div class="changelog-type added">ADDED</div>
-                        </div>
-                        <div class="changelog-description">
-                            Added CPS Network website
-                        </div>
-                        <div class="changelog-details">
-                            Initial website design added with Premium, Discord Info, Script List and Supported Executers tabs.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="executerModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeExecuterModal()">&times;</span>
-            <h2 class="modal-title" id="executerModalTitle">Executer Info</h2>
-            <div id="executerModalContent">
-            </div>
-        </div>
-    </div>
-    
-    <div id="scriptModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeScriptModal()">&times;</span>
-            <h2 class="modal-title" id="scriptModalTitle">Script Options</h2>
-            <div id="scriptModalContent">
-            </div>
-        </div>
-    </div>
-
-    <div id="tsbModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeTSBModal()">&times;</span>
-            <h2 class="modal-title">Select TSB Script</h2>
-            <div class="script-modal-buttons">
-                <button class="script-modal-button option" onclick="selectTSBScript('Auto Block')">
-                    🛡️ TSB Auto Block
-                </button>
-                <button class="script-modal-button option" onclick="selectTSBScript('Auto Techs')">
-                    🤖 TSB Auto Techs
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div id="nightsModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeNightsModal()">&times;</span>
-            <h2 class="modal-title">Select 99 Nights Script</h2>
-            <div class="script-modal-buttons">
-                <button class="script-modal-button option" onclick="selectNightsScript('Hub')">
-                    🌙 99 Nights Hub
-                </button>
-                <button class="script-modal-button option" onclick="selectNightsScript('AutoFarm')">
-                    💎 99 Nights AutoFarm
-                </button>
             </div>
         </div>
     </div>
 
     <script>
+        // ==================== STATUS CONFIGURATION ====================
+        let UpdateStatus = {
+            "Volcano": "Updated",
+            "Velocity": "Not Updated", 
+            "Wave": "Updated",
+            "Volt": "Updated",
+            "Seliware": "Updated",
+            "Swift": "Not Updated",
+            "Valex": "Updated",
+            "Potassium":"Updated",
+            "Bunni.lol": "Updated",
+            "Sirhurt": "Updated",
+            "Hydrogen": "Not Updated",
+            "Macsploit": "Updated",
+            "Codex": "Updated",
+            "Cryptic": "Not Updated",
+            "Cryptic-Android": "Updated",
+            "Delta": "Updated",
+            "Delta-iOS": "Updated",
+            "ChocoSploit": "Updated"
+        };
+
+        let DetectStatus = {
+            "Volcano": "Undetected",
+            "Velocity": "Undetected",
+            "Wave": "Undetected",
+            "Volt": "Undetected",
+            "Seliware": "Undetected",
+            "Swift": "Detected",
+            "Valex": "Detected",
+            "Potassium": "Undetected",
+            "Bunni.lol": "Unknown",
+            "Sirhurt": "Undetected",
+            "Hydrogen": "Undetected",
+            "Macsploit": "Undetected",
+            "Codex": "Undetected",
+            "Cryptic": "Undetected",
+            "Cryptic-Android": "Undetected",
+            "Delta": "Undetected",
+            "Delta-iOS": "Undetected",
+            "ChocoSploit": "Undetected"
+        };
+
+        // ==================== TECHNICAL ISSUES VARIABLE ====================
+        let technicalIssues = true;
+
+        function checkTechnicalIssues() {
+            if (technicalIssues) {
+                document.querySelector('.technical-issues').classList.add('active');
+                document.querySelector('.main-content').classList.add('hidden');
+            } else {
+                document.querySelector('.technical-issues').classList.remove('active');
+                document.querySelector('.main-content').classList.remove('hidden');
+            }
+        }
+
+        checkTechnicalIssues();
+
         // ==================== SCRIPT DATA ====================
         const scriptData = {
             "Universal Gui": {
@@ -1631,49 +1743,6 @@
                 successMessage.classList.remove('show');
             }
         }
-
-        // ==================== STATUS CONFIGURATION ====================
-        let UpdateStatus = {
-            "Volcano": "Updated",
-            "Velocity": "Not Updated", 
-            "Wave": "Updated",
-            "Volt": "Updated",
-            "Seliware": "Updated",
-            "Swift": "Not Updated",
-            "Valex": "Updated",
-            "Potassium":"Updated",
-            "Bunni.lol": "Updated",
-            "Sirhurt": "Updated",
-            "Hydrogen": "Not Updated",
-            "Macsploit": "Updated",
-            "Codex": "Updated",
-            "Cryptic": "Not Updated",
-            "Cryptic-Android": "Updated",
-            "Delta": "Updated",
-            "Delta-iOS": "Updated",
-            "ChocoSploit": "Updated"
-        };
-
-        let DetectStatus = {
-            "Volcano": "Undetected",
-            "Velocity": "Undetected",
-            "Wave": "Undetected",
-            "Volt": "Undetected",
-            "Seliware": "Undetected",
-            "Swift": "Detected",
-            "Valex": "Detected",
-            "Potassium": "Undetected",
-            "Bunni.lol": "Unknown",
-            "Sirhurt": "Undetected",
-            "Hydrogen": "Undetected",
-            "Macsploit": "Undetected",
-            "Codex": "Undetected",
-            "Cryptic": "Undetected",
-            "Cryptic-Android": "Undetected",
-            "Delta": "Undetected",
-            "Delta-iOS": "Undetected",
-            "ChocoSploit": "Undetected"
-        };
 
         function createStatusIndicator(type, status) {
             const indicator = document.createElement('div');
