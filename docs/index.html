@@ -1923,7 +1923,22 @@
             });
         }, 1000);
 
+        // ==================== ТЕХНИЧЕСКИЕ ПРОБЛЕМЫ ====================
         let technicalIssues = false;
+
+        function checkTechnicalIssues() {
+            if (technicalIssues) {
+                document.querySelector('.technical-issues').classList.add('active');
+                document.querySelector('.main-content').classList.add('hidden');
+            } else {
+                document.querySelector('.technical-issues').classList.remove('active');
+                document.querySelector('.main-content').classList.remove('hidden');
+            }
+        }
+
+        checkTechnicalIssues();
+
+        // ==================== СТАТУСЫ И СКРИПТЫ ====================
         let UpdateStatus = {
             "Volcano": "Updated",
             "Velocity": "Not Updated", 
