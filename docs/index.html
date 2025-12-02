@@ -1251,6 +1251,12 @@
         .legend-coming {
             background: #b8c2cc;
         }
+        
+        .changelog-date {
+            font-size: 0.9rem;
+            color: #b38e5d;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -1448,6 +1454,12 @@
                         <div class="script-button" onclick="showTSBModal()">
                             <div class="script-icon">🏈</div>
                             <div class="script-name">TSB Script</div>
+                        </div>
+                        
+                        <!-- НАЗВАНИЕ ИЗМЕНЕНО НА Dead Rails Script -->
+                        <div class="script-button" onclick="showScriptModal('Dead Rails Script')">
+                            <div class="script-icon">🚂</div>
+                            <div class="script-name">Dead Rails Script</div>
                         </div>
                     </div>
 
@@ -1664,6 +1676,18 @@
                     </div>
                     
                     <div class="changelog-list">
+                        <div class="changelog-item">
+                            <div class="changelog-header">
+                                <div class="changelog-type added">ADDED</div>
+                            </div>
+                            <div class="changelog-description">
+                                Added new Dead Rails Script to the script list
+                            </div>
+                            <div class="changelog-details">
+                                Added Dead Rails Script to the script list.
+                            </div>
+                        </div>
+                        
                         <div class="changelog-item">
                             <div class="changelog-header">
                                 <div class="changelog-type added">ADDED</div>
@@ -2008,6 +2032,11 @@
             },
             "TSB Auto Techs": {
                 code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/hellattexyss/autotechs/refs/heads/main/cpstechs.lua"))()',
+                discordLink: 'https://discord.gg/uCq6dNAfRV'
+            },
+            // НАЗВАНИЕ ИЗМЕНЕНО НА Dead Rails Script
+            "Dead Rails Script": {
+                code: 'loadstring(game:HttpGet("https://api.getpolsec.com/scripts/files/8296210a2f042b36145c0db05bd725f73dcf465e2cd54e02ee843c6578a40a91.lua"))()',
                 discordLink: 'https://discord.gg/uCq6dNAfRV'
             }
         };
