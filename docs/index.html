@@ -1947,375 +1947,542 @@
             });
         }, 1000);
 
-        // ==================== ТЕХНИЧЕСКИЕ ПРОБЛЕМЫ ====================
-        let technicalIssues = false;
+        const canvas = document.getElementById('animated-bg');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let mouse = { x: null, y: null, radius: 150 };
 
-        function checkTechnicalIssues() {
-            if (technicalIssues) {
-                document.querySelector('.technical-issues').classList.add('active');
-                document.querySelector('.main-content').classList.add('hidden');
-            } else {
-                document.querySelector('.technical-issues').classList.remove('active');
-                document.querySelector('.main-content').classList.remove('hidden');
-            }
-        }
+let hideInjectorStatuses = true;
 
-        checkTechnicalIssues();
+let technicalIssues = false;
 
-        // ==================== СТАТУСЫ И СКРИПТЫ ====================
-        let UpdateStatus = {
-            "Volcano": "Not Updated",
-            "Velocity": "Not Updated", 
-            "Wave": "Not Updated",
-            "Volt": "Updated",
-            "Seliware": "Updated",
-            "Swift": "Not Updated",
-            "Valex": "Not Updated",
-            "Potassium":"Not Updated",
-            "Bunni.lol": "Not Updated",
-            "Sirhurt": "Not Updated",
-            "Hydrogen": "Not Updated",
-            "Macsploit": "Not Updated",
-            "Codex": "Not Updated",
-            "Cryptic": "Not Updated",
-            "Cryptic-Android": "Updated",
-            "Delta": "Updated",
-            "Delta-iOS": "Updated",
-            "ChocoSploit": "Updated"
-        };
+let UpdateStatus = {
+    "Volcano": "Not Updated",
+    "Velocity": "Not Updated", 
+    "Wave": "Not Updated",
+    "Volt": "Updated",
+    "Seliware": "Updated",
+    "Swift": "Not Updated",
+    "Valex": "Not Updated",
+    "Potassium":"Not Updated",
+    "Bunni.lol": "Not Updated",
+    "Sirhurt": "Not Updated",
+    "Hydrogen": "Not Updated",
+    "Macsploit": "Not Updated",
+    "Codex": "Not Updated",
+    "Cryptic": "Not Updated",
+    "Cryptic-Android": "Updated",
+    "Delta": "Updated",
+    "Delta-iOS": "Updated",
+    "ChocoSploit": "Updated"
+};
 
-        let DetectStatus = {
-            "Volcano": "Undetected",
-            "Velocity": "Undetected",
-            "Wave": "Undetected",
-            "Volt": "Undetected",
-            "Seliware": "Undetected",
-            "Swift": "Detected",
-            "Valex": "Detected",
-            "Potassium": "Undetected",
-            "Bunni.lol": "Unknown",
-            "Sirhurt": "Undetected",
-            "Hydrogen": "Undetected",
-            "Macsploit": "Undetected",
-            "Codex": "Detected",
-            "Cryptic": "Undetected",
-            "Cryptic-Android": "Undetected",
-            "Delta": "Undetected",
-            "Delta-iOS": "Undetected",
-            "ChocoSploit": "Undetected"
-        };
+let DetectStatus = {
+    "Volcano": "Undetected",
+    "Velocity": "Undetected",
+    "Wave": "Undetected",
+    "Volt": "Undetected",
+    "Seliware": "Undetected",
+    "Swift": "Detected",
+    "Valex": "Detected",
+    "Potassium": "Undetected",
+    "Bunni.lol": "Unknown",
+    "Sirhurt": "Undetected",
+    "Hydrogen": "Undetected",
+    "Macsploit": "Undetected",
+    "Codex": "Detected",
+    "Cryptic": "Undetected",
+    "Cryptic-Android": "Undetected",
+    "Delta": "Undetected",
+    "Delta-iOS": "Undetected",
+    "ChocoSploit": "Undetected"
+};
 
-        const scriptData = {
-            "Universal Gui": {
-                code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/CPSNetwork",true))()',
-                discordLink: 'https://discord.gg/uCq6dNAfRV'
-            },
-            "Touch Football Script": {
-                code: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/aquzeh/8e317c91305a2311bb9931c2b79c15b2/raw/cpstfb"))()',
-                discordLink: 'https://discord.gg/uCq6dNAfRV'
-            },
-            "PVB Script": {
-                code: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/aquzeh/86b881d600cd8f7fdd007469e4a45965/raw/pvb"))()',
-                discordLink: 'https://discord.gg/uCq6dNAfRV'
-            },
-            "99 Nights Hub": {
-                code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/Hub",true))()',
-                discordLink: 'https://discord.gg/uCq6dNAfRV'
-            },
-            "99 Nights AutoFarm": {
-                code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/DayFarm%E2%84%A2",true))()',
-                discordLink: 'https://discord.gg/uCq6dNAfRV'
-            },
-            "TSB Auto Block": {
-                code: 'loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/6f502e252308fb97855295005faa73a0.lua"))()',
-                discordLink: 'https://discord.gg/uCq6dNAfRV'
-            },
-            "TSB Auto Techs": {
-                code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/hellattexyss/autotechs/refs/heads/main/cpstechs.lua"))()',
-                discordLink: 'https://discord.gg/uCq6dNAfRV'
-            },
-            // НАЗВАНИЕ ИЗМЕНЕНО НА Dead Rails Script
-            "Dead Rails Script": {
-                code: 'loadstring(game:HttpGet("https://api.getpolsec.com/scripts/files/8296210a2f042b36145c0db05bd725f73dcf465e2cd54e02ee843c6578a40a91.lua"))()',
-                discordLink: 'https://discord.gg/uCq6dNAfRV'
-            }
-        };
+const scriptData = {
+    "Universal Gui": {
+        code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/CPSNetwork",true))()',
+        discordLink: 'https://discord.gg/uCq6dNAfRV'
+    },
+    "Touch Football Script": {
+        code: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/aquzeh/8e317c91305a2311bb9931c2b79c15b2/raw/cpstfb"))()',
+        discordLink: 'https://discord.gg/uCq6dNAfRV'
+    },
+    "PVB Script": {
+        code: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/aquzeh/86b881d600cd8f7fdd007469e4a45965/raw/pvb"))()',
+        discordLink: 'https://discord.gg/uCq6dNAfRV'
+    },
+    "99 Nights Hub": {
+        code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/Hub",true))()',
+        discordLink: 'https://discord.gg/uCq6dNAfRV'
+    },
+    "99 Nights AutoFarm": {
+        code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/DayFarm%E2%84%A2",true))()',
+        discordLink: 'https://discord.gg/uCq6dNAfRV'
+    },
+    "TSB Auto Block": {
+        code: 'loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/6f502e252308fb97855295005faa73a0.lua"))()',
+        discordLink: 'https://discord.gg/uCq6dNAfRV'
+    },
+    "TSB Auto Techs": {
+        code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/hellattexyss/autotechs/refs/heads/main/cpstechs.lua"))()',
+        discordLink: 'https://discord.gg/uCq6dNAfRV'
+    },
+    "Dead Rails Script": {
+        code: 'loadstring(game:HttpGet("https://api.getpolsec.com/scripts/files/8296210a2f042b36145c0db05bd725f73dcf465e2cd54e02ee843c6578a40a91.lua"))()',
+        discordLink: 'https://discord.gg/uCq6dNAfRV'
+    }
+};
 
-        function showScriptModal(scriptName) {
-            const modal = document.getElementById('scriptModal');
-            const modalTitle = document.getElementById('scriptModalTitle');
-            const modalContent = document.getElementById('scriptModalContent');
-            
-            const scriptInfo = scriptData[scriptName];
-            if (!scriptInfo) return;
-            
-            modalTitle.textContent = `${scriptName} - Options`;
-            
-            modalContent.innerHTML = `
-                <div class="script-modal-buttons">
-                    <button class="script-modal-button copy" onclick="copyScriptCode('${scriptName}')">
-                        📋 Get script now
-                    </button>
-                    <a href="${scriptInfo.discordLink}" class="script-modal-button discord" target="_blank">
-                        💬 Go to Discord
-                    </a>
-                </div>
-                <div class="script-code">${scriptInfo.code}</div>
-                <div class="copy-success" id="copySuccessMessage">✅ Script copied to clipboard!</div>
-            `;
-            
-            modal.style.display = 'flex';
-            setTimeout(() => {
-                modal.classList.add('active');
-            }, 10);
-        }
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initParticles();
+}
 
-        function showTSBModal() {
-            const modal = document.getElementById('tsbModal');
-            
-            modal.style.display = 'flex';
-            setTimeout(() => {
-                modal.classList.add('active');
-            }, 10);
-        }
-
-        function closeTSBModal() {
-            const modal = document.getElementById('tsbModal');
-            
-            modal.classList.remove('active');
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
-        }
-
-        function selectTSBScript(scriptType) {
-            closeTSBModal();
-            
-            const fullScriptName = `TSB ${scriptType}`;
-            showScriptModal(fullScriptName);
-        }
-
-        function show99NightsModal() {
-            const modal = document.getElementById('nightsModal');
-            
-            modal.style.display = 'flex';
-            setTimeout(() => {
-                modal.classList.add('active');
-            }, 10);
-        }
-
-        function closeNightsModal() {
-            const modal = document.getElementById('nightsModal');
-            
-            modal.classList.remove('active');
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
-        }
-
-        function selectNightsScript(scriptType) {
-            closeNightsModal();
-            
-            const fullScriptName = `99 Nights ${scriptType}`;
-            showScriptModal(fullScriptName);
-        }
-
-        function copyScriptCode(scriptName) {
-            const scriptCode = scriptData[scriptName].code;
-            
-            navigator.clipboard.writeText(scriptCode).then(() => {
-                const successMessage = document.getElementById('copySuccessMessage');
-                successMessage.classList.add('show');
-                
-                setTimeout(() => {
-                    successMessage.classList.remove('show');
-                }, 3000);
-            }).catch(err => {
-                console.error('Failed to copy script: ', err);
-                alert('Failed to copy script. Please copy manually.');
-            });
-        }
-
-        function closeScriptModal() {
-            const modal = document.getElementById('scriptModal');
-            
-            modal.classList.remove('active');
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
-            
-            const successMessage = document.getElementById('copySuccessMessage');
-            if (successMessage) {
-                successMessage.classList.remove('show');
-            }
-        }
-
-        function createStatusIndicator(type, status) {
-            const indicator = document.createElement('div');
-            
-            if (type === 'update') {
-                if (status === 'Updated') {
-                    indicator.className = 'status-indicator status-updated';
-                    indicator.textContent = 'Updated';
-                } else if (status === 'Not Updated') {
-                    indicator.className = 'status-indicator status-not-updated';
-                    indicator.textContent = 'Not Updated';
-                } else if (status === 'Unknown') {
-                    indicator.className = 'status-indicator status-unknown-update';
-                    indicator.textContent = 'Unknown';
-                } else {
-                    indicator.className = 'status-indicator status-unknown-update';
-                    indicator.textContent = 'Unknown';
-                }
-            } else {
-                if (status === 'Detected') {
-                    indicator.className = 'status-indicator status-detected';
-                    indicator.textContent = 'Detected';
-                } else if (status === 'Undetected') {
-                    indicator.className = 'status-indicator status-undetected';
-                    indicator.textContent = 'Undetected';
-                } else if (status === 'Unknown') {
-                    indicator.className = 'status-indicator status-unknown-update';
-                    indicator.textContent = 'Unknown';
-                } else {
-                    indicator.className = 'status-indicator status-undetected';
-                    indicator.textContent = 'Undetected';
-                }
-            }
-            
-            return indicator;
-        }
-
-        function initializeStatuses() {
-            for (const [executerName, updateStatus] of Object.entries(UpdateStatus)) {
-                const statusContainer = document.getElementById(`status-${executerName}`);
-                if (statusContainer) {
-                    statusContainer.innerHTML = '';
-                    
-                    const updateIndicator = createStatusIndicator('update', updateStatus);
-                    statusContainer.appendChild(updateIndicator);
-                    
-                    const detectStatus = DetectStatus[executerName];
-                    if (detectStatus) {
-                        const detectIndicator = createStatusIndicator('detect', detectStatus);
-                        statusContainer.appendChild(detectIndicator);
-                    }
-                }
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', initializeStatuses);
-
-        document.querySelectorAll('.tab-button').forEach(button => {
-            button.addEventListener('click', () => {
-                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                
-                button.classList.add('active');
-                
-                const tabId = button.getAttribute('data-tab') + '-tab';
-                document.getElementById(tabId).classList.add('active');
-            });
+function initParticles() {
+    particles = [];
+    const particleCount = Math.min(100, Math.floor((canvas.width * canvas.height) / 10000));
+    
+    for (let i = 0; i < particleCount; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 3 + 1,
+            speedX: Math.random() * 1 - 0.5,
+            speedY: Math.random() * 1 - 0.5,
+            color: `rgba(${Math.random() > 0.5 ? '179, 142, 93' : '168, 107, 107'}, ${Math.random() * 0.3 + 0.2})`
         });
+    }
+}
 
-        document.querySelectorAll('.platform-tab').forEach(button => {
-            button.addEventListener('click', () => {
-                document.querySelectorAll('.platform-tab').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.platform-content').forEach(content => content.classList.remove('active'));
-                
-                button.classList.add('active');
-                
-                const platformId = button.getAttribute('data-platform') + '-content';
-                document.getElementById(platformId).classList.add('active');
-            });
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    particles.forEach(particle => {
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+        
+        if (particle.x > canvas.width || particle.x < 0) particle.speedX = -particle.speedX;
+        if (particle.y > canvas.height || particle.y < 0) particle.speedY = -particle.speedY;
+        
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = particle.color;
+        ctx.fill();
+        
+        particles.forEach(otherParticle => {
+            const dx = particle.x - otherParticle.x;
+            const dy = particle.y - otherParticle.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 100) {
+                ctx.beginPath();
+                ctx.strokeStyle = `rgba(179, 142, 93, ${0.1 * (1 - distance/100)})`;
+                ctx.lineWidth = 0.5;
+                ctx.moveTo(particle.x, particle.y);
+                ctx.lineTo(otherParticle.x, otherParticle.y);
+                ctx.stroke();
+            }
         });
-
-        function showExecuterInfo(executerName, price, website) {
-            const modal = document.getElementById('executerModal');
-            const modalTitle = document.getElementById('executerModalTitle');
-            const modalContent = document.getElementById('executerModalContent');
+        
+        if (mouse.x !== null && mouse.y !== null) {
+            const dx = mouse.x - particle.x;
+            const dy = mouse.y - particle.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
             
-            modalTitle.textContent = `${executerName} Info`;
-            
-            const updateStatus = UpdateStatus[executerName] || 'Unknown';
-            const detectStatus = DetectStatus[executerName] || 'Detected';
-            
-            modalContent.innerHTML = `
-                <div class="executer-details">
-                    <div class="detail-row">
-                        <span class="detail-label">Price:</span>
-                        <span class="detail-value">${price}</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Update Status:</span>
-                        <span class="detail-value">
-                            ${createStatusIndicator('update', updateStatus).outerHTML}
-                        </span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Detect Status:</span>
-                        <span class="detail-value">
-                            ${createStatusIndicator('detect', detectStatus).outerHTML}
-                        </span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Website:</span>
-                        <span class="detail-value">${website.replace('https://', '')}</span>
-                    </div>
-                </div>
+            if (distance < mouse.radius) {
+                const force = (mouse.radius - distance) / mouse.radius;
+                const forceX = dx / distance * force * 10;
+                const forceY = dy / distance * force * 10;
                 
-                <a href="${website}" class="website-link" target="_blank">Official Website</a>
-                
-                <div class="status-check-notice" style="margin-top: 20px;">
-                    <h3>🔍 Important Notice</h3>
-                    <p>Statuses are not updated automatically and may not be accurate. Always check <strong>weao.xyz</strong> for accurate and current executor statuses.</p>
-                    <a href="https://weao.xyz/" class="status-check-link" target="_blank">
-                        📊 Check accurate statuses on weao.xyz
-                    </a>
-                </div>
-                
-                <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem; color: #c0c0c0;">
-                    We do not track executor update statuses automatically. Always check the official website for current status.
-                </p>
-            `;
-            
-            modal.style.display = 'flex';
-            setTimeout(() => {
-                modal.classList.add('active');
-            }, 10);
-        }
-
-        function closeExecuterModal() {
-            const modal = document.getElementById('executerModal');
-            
-            modal.classList.remove('active');
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
-        }
-
-        window.onclick = function(event) {
-            const executerModal = document.getElementById('executerModal');
-            const scriptModal = document.getElementById('scriptModal');
-            const tsbModal = document.getElementById('tsbModal');
-            const nightsModal = document.getElementById('nightsModal');
-            
-            if (event.target === executerModal) {
-                closeExecuterModal();
-            }
-            
-            if (event.target === scriptModal) {
-                closeScriptModal();
-            }
-            
-            if (event.target === tsbModal) {
-                closeTSBModal();
-            }
-            
-            if (event.target === nightsModal) {
-                closeNightsModal();
+                particle.x -= forceX;
+                particle.y -= forceY;
             }
         }
+    });
+    
+    requestAnimationFrame(animateParticles);
+}
+
+window.addEventListener('mousemove', (e) => {
+    mouse.x = e.x;
+    mouse.y = e.y;
+});
+
+window.addEventListener('mouseout', () => {
+    mouse.x = null;
+    mouse.y = null;
+});
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+animateParticles();
+
+function createFloatingParticles() {
+    const particleCount = 20;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'floating-particle';
+        
+        const size = Math.random() * 3 + 1;
+        const startX = Math.random() * 100;
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 5;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${startX}vw`;
+        particle.style.bottom = '0';
+        particle.style.opacity = Math.random() * 0.3 + 0.1;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.setProperty('--dx', (Math.random() * 2 - 1).toFixed(2));
+        
+        const colors = [
+            'rgba(179, 142, 93, 0.3)',
+            'rgba(168, 107, 107, 0.3)',
+            'rgba(111, 66, 193, 0.2)',
+            'rgba(40, 167, 69, 0.2)'
+        ];
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        
+        document.body.appendChild(particle);
+        
+        setTimeout(() => {
+            particle.remove();
+        }, (duration + delay) * 1000);
+    }
+    
+    setTimeout(createFloatingParticles, 2000);
+}
+
+createFloatingParticles();
+
+function handleScrollAnimations() {
+    const elements = document.querySelectorAll('.slide-in');
+    
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('slide-in');
+        }
+    });
+}
+
+document.querySelectorAll('.plan, .perk-card, .feature-card, .executer-card, .changelog-item').forEach(el => {
+    el.classList.add('slide-in');
+});
+
+window.addEventListener('scroll', handleScrollAnimations);
+handleScrollAnimations();
+
+setTimeout(() => {
+    document.querySelectorAll('.purchase-info, .discord-button, .support-server-button, .support-button, .main-server-button').forEach(el => {
+        el.classList.add('pulse-animation');
+    });
+}, 1000);
+
+function checkTechnicalIssues() {
+    if (technicalIssues) {
+        document.querySelector('.technical-issues').classList.add('active');
+        document.querySelector('.main-content').classList.add('hidden');
+    } else {
+        document.querySelector('.technical-issues').classList.remove('active');
+        document.querySelector('.main-content').classList.remove('hidden');
+    }
+}
+
+checkTechnicalIssues();
+
+function showScriptModal(scriptName) {
+    const modal = document.getElementById('scriptModal');
+    const modalTitle = document.getElementById('scriptModalTitle');
+    const modalContent = document.getElementById('scriptModalContent');
+    
+    const scriptInfo = scriptData[scriptName];
+    if (!scriptInfo) return;
+    
+    modalTitle.textContent = `${scriptName} - Options`;
+    
+    modalContent.innerHTML = `
+        <div class="script-modal-buttons">
+            <button class="script-modal-button copy" onclick="copyScriptCode('${scriptName}')">
+                📋 Get script now
+            </button>
+            <a href="${scriptInfo.discordLink}" class="script-modal-button discord" target="_blank">
+                💬 Go to Discord
+            </a>
+        </div>
+        <div class="script-code">${scriptInfo.code}</div>
+        <div class="copy-success" id="copySuccessMessage">✅ Script copied to clipboard!</div>
+    `;
+    
+    modal.style.display = 'flex';
+    setTimeout(() => {
+        modal.classList.add('active');
+    }, 10);
+}
+
+function showTSBModal() {
+    const modal = document.getElementById('tsbModal');
+    
+    modal.style.display = 'flex';
+    setTimeout(() => {
+        modal.classList.add('active');
+    }, 10);
+}
+
+function closeTSBModal() {
+    const modal = document.getElementById('tsbModal');
+    
+    modal.classList.remove('active');
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+}
+
+function selectTSBScript(scriptType) {
+    closeTSBModal();
+    
+    const fullScriptName = `TSB ${scriptType}`;
+    showScriptModal(fullScriptName);
+}
+
+function show99NightsModal() {
+    const modal = document.getElementById('nightsModal');
+    
+    modal.style.display = 'flex';
+    setTimeout(() => {
+        modal.classList.add('active');
+    }, 10);
+}
+
+function closeNightsModal() {
+    const modal = document.getElementById('nightsModal');
+    
+    modal.classList.remove('active');
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+}
+
+function selectNightsScript(scriptType) {
+    closeNightsModal();
+    
+    const fullScriptName = `99 Nights ${scriptType}`;
+    showScriptModal(fullScriptName);
+}
+
+function copyScriptCode(scriptName) {
+    const scriptCode = scriptData[scriptName].code;
+    
+    navigator.clipboard.writeText(scriptCode).then(() => {
+        const successMessage = document.getElementById('copySuccessMessage');
+        successMessage.classList.add('show');
+        
+        setTimeout(() => {
+            successMessage.classList.remove('show');
+        }, 3000);
+    }).catch(err => {
+        console.error('Failed to copy script: ', err);
+        alert('Failed to copy script. Please copy manually.');
+    });
+}
+
+function closeScriptModal() {
+    const modal = document.getElementById('scriptModal');
+    
+    modal.classList.remove('active');
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+    
+    const successMessage = document.getElementById('copySuccessMessage');
+    if (successMessage) {
+        successMessage.classList.remove('show');
+    }
+}
+
+function createStatusIndicator(type, status) {
+    const indicator = document.createElement('div');
+    
+    if (type === 'update') {
+        if (status === 'Updated') {
+            indicator.className = 'status-indicator status-updated';
+            indicator.textContent = 'Updated';
+        } else if (status === 'Not Updated') {
+            indicator.className = 'status-indicator status-not-updated';
+            indicator.textContent = 'Not Updated';
+        } else if (status === 'Unknown') {
+            indicator.className = 'status-indicator status-unknown-update';
+            indicator.textContent = 'Unknown';
+        } else {
+            indicator.className = 'status-indicator status-unknown-update';
+            indicator.textContent = 'Unknown';
+        }
+    } else {
+        if (status === 'Detected') {
+            indicator.className = 'status-indicator status-detected';
+            indicator.textContent = 'Detected';
+        } else if (status === 'Undetected') {
+            indicator.className = 'status-indicator status-undetected';
+            indicator.textContent = 'Undetected';
+        } else if (status === 'Unknown') {
+            indicator.className = 'status-indicator status-unknown-update';
+            indicator.textContent = 'Unknown';
+        } else {
+            indicator.className = 'status-indicator status-undetected';
+            indicator.textContent = 'Undetected';
+        }
+    }
+    
+    return indicator;
+}
+
+function initializeStatuses() {
+    for (const [executerName, updateStatus] of Object.entries(UpdateStatus)) {
+        const statusContainer = document.getElementById(`status-${executerName}`);
+        if (statusContainer) {
+            statusContainer.innerHTML = '';
+            
+            if (!hideInjectorStatuses) {
+                const updateIndicator = createStatusIndicator('update', updateStatus);
+                statusContainer.appendChild(updateIndicator);
+                
+                const detectStatus = DetectStatus[executerName];
+                if (detectStatus) {
+                    const detectIndicator = createStatusIndicator('detect', detectStatus);
+                    statusContainer.appendChild(detectIndicator);
+                }
+            }
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', initializeStatuses);
+
+document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        
+        button.classList.add('active');
+        
+        const tabId = button.getAttribute('data-tab') + '-tab';
+        document.getElementById(tabId).classList.add('active');
+    });
+});
+
+document.querySelectorAll('.platform-tab').forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.platform-tab').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.platform-content').forEach(content => content.classList.remove('active'));
+        
+        button.classList.add('active');
+        
+        const platformId = button.getAttribute('data-platform') + '-content';
+        document.getElementById(platformId).classList.add('active');
+    });
+});
+
+function showExecuterInfo(executerName, price, website) {
+    const modal = document.getElementById('executerModal');
+    const modalTitle = document.getElementById('executerModalTitle');
+    const modalContent = document.getElementById('executerModalContent');
+    
+    modalTitle.textContent = `${executerName} Info`;
+    
+    const updateStatus = UpdateStatus[executerName] || 'Unknown';
+    const detectStatus = DetectStatus[executerName] || 'Detected';
+    
+    let statusHTML = '';
+    if (!hideInjectorStatuses) {
+        statusHTML = `
+            <div class="detail-row">
+                <span class="detail-label">Update Status:</span>
+                <span class="detail-value">
+                    ${createStatusIndicator('update', updateStatus).outerHTML}
+                </span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Detect Status:</span>
+                <span class="detail-value">
+                    ${createStatusIndicator('detect', detectStatus).outerHTML}
+                </span>
+            </div>
+        `;
+    }
+    
+    modalContent.innerHTML = `
+        <div class="executer-details">
+            <div class="detail-row">
+                <span class="detail-label">Price:</span>
+                <span class="detail-value">${price}</span>
+            </div>
+            ${statusHTML}
+            <div class="detail-row">
+                <span class="detail-label">Website:</span>
+                <span class="detail-value">${website.replace('https://', '')}</span>
+            </div>
+        </div>
+        
+        <a href="${website}" class="website-link" target="_blank">Official Website</a>
+        
+        ${!hideInjectorStatuses ? `
+        <div class="status-check-notice" style="margin-top: 20px;">
+            <h3>🔍 Important Notice</h3>
+            <p>Statuses are not updated automatically and may not be accurate. Always check <strong>weao.xyz</strong> for accurate and current executor statuses.</p>
+            <a href="https://weao.xyz/" class="status-check-link" target="_blank">
+                📊 Check accurate statuses on weao.xyz
+            </a>
+        </div>
+        
+        <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem; color: #c0c0c0;">
+            We do not track executor update statuses automatically. Always check the official website for current status.
+        </p>
+        ` : ''}
+    `;
+    
+    modal.style.display = 'flex';
+    setTimeout(() => {
+        modal.classList.add('active');
+    }, 10);
+}
+
+function closeExecuterModal() {
+    const modal = document.getElementById('executerModal');
+    
+    modal.classList.remove('active');
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+}
+
+window.onclick = function(event) {
+    const executerModal = document.getElementById('executerModal');
+    const scriptModal = document.getElementById('scriptModal');
+    const tsbModal = document.getElementById('tsbModal');
+    const nightsModal = document.getElementById('nightsModal');
+    
+    if (event.target === executerModal) {
+        closeExecuterModal();
+    }
+    
+    if (event.target === scriptModal) {
+        closeScriptModal();
+    }
+    
+    if (event.target === tsbModal) {
+        closeTSBModal();
+    }
+    
+    if (event.target === nightsModal) {
+        closeNightsModal();
+    }
+}
     </script>
 </body>
 </html>
