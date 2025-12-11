@@ -250,26 +250,6 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             border: 1px solid rgba(80, 30, 30, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tab-button::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .tab-button:hover::after {
-            width: 300px;
-            height: 300px;
         }
 
         .tab-button.active {
@@ -400,7 +380,6 @@
             font-weight: bold;
             text-align: center;
             border-left: 3px solid rgba(179, 142, 93, 0.5);
-            animation: pulse 2s infinite;
         }
 
         .support-button {
@@ -419,7 +398,6 @@
             gap: 8px;
             transition: all 0.3s ease;
             border: 1px solid rgba(100, 40, 40, 0.3);
-            animation: pulse 2s infinite;
         }
 
         .support-button:hover {
@@ -444,7 +422,6 @@
             gap: 8px;
             transition: all 0.3s ease;
             border: 1px solid rgba(80, 40, 80, 0.3);
-            animation: pulse 2s infinite;
         }
 
         .main-server-button:hover {
@@ -529,7 +506,6 @@
         .discord-icon {
             font-size: 4rem;
             margin-bottom: 20px;
-            animation: pulse 3s infinite;
         }
 
         .discord-title {
@@ -560,27 +536,6 @@
             display: inline-block;
             margin: 10px 5px;
             border: 1px solid rgba(100, 40, 40, 0.3);
-            position: relative;
-            overflow: hidden;
-            animation: pulse 2s infinite;
-        }
-
-        .discord-button::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .discord-button:hover::after {
-            width: 300px;
-            height: 300px;
         }
 
         .discord-button:hover {
@@ -604,27 +559,6 @@
             margin: 10px 5px;
             font-weight: bold;
             border: 1px solid rgba(80, 40, 80, 0.3);
-            position: relative;
-            overflow: hidden;
-            animation: pulse 2s infinite;
-        }
-
-        .support-server-button::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .support-server-button:hover::after {
-            width: 300px;
-            height: 300px;
         }
 
         .support-server-button:hover {
@@ -2011,12 +1945,6 @@
 
         window.addEventListener('scroll', handleScrollAnimations);
         handleScrollAnimations();
-
-        setTimeout(() => {
-            document.querySelectorAll('.purchase-info, .discord-button, .support-server-button, .support-button, .main-server-button').forEach(el => {
-                el.classList.add('pulse-animation');
-            });
-        }, 1000);
 
         function checkTechnicalIssues() {
             if (technicalIssues) {
