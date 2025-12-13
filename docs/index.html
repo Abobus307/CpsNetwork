@@ -1959,35 +1959,36 @@
     }
 
     function updateInjectorCard(injectorName) {
-        const injectorData = exploitsFullData[injectorName];
-        
-        const priceElement = document.getElementById(`price-${injectorName}`);
-        const websiteElement = document.getElementById(`website-${injectorName}`);
-        
-        if (priceElement) {
-            if (injectorData && injectorData.cost) {
-                if (injectorData.free === true) {
-                    priceElement.textContent = '';
-                } else {
-                    priceElement.textContent = injectorData.cost;
-                }
-            } else if (injectorData && injectorData.free !== undefined) {
-                priceElement.textContent = injectorData.free ? '' : 'Paid';
+    const injectorData = exploitsFullData[injectorName];
+    
+    const priceElement = document.getElementById(`price-${injectorName}`);
+    const websiteElement = document.getElementById(`website-${injectorName}`);
+    
+    if (priceElement) {
+        if (injectorData) {
+            if (injectorData.keysystem === true) {
+                priceElement.textContent = 'Free (Key System)';
+                priceElement.style.color = '#b38e5d';
             } else {
-                priceElement.textContent = "Price not available";
+                priceElement.textContent = 'Free';
+                priceElement.style.color = '#4caf50';
             }
+        } else {
+            priceElement.textContent = 'Free';
+            priceElement.style.color = '#4caf50';
         }
-        
-        if (websiteElement) {
-            if (injectorData && injectorData.websitelink) {
-                websiteElement.textContent = injectorData.websitelink.replace("https://", "");
-            } else {
-                websiteElement.textContent = "Website not available";
-            }
-        }
-        
-        updateStatusDisplay(injectorName);
     }
+    
+    if (websiteElement) {
+        if (injectorData && injectorData.websitelink) {
+            websiteElement.textContent = injectorData.websitelink.replace("https://", "");
+        } else {
+            websiteElement.textContent = "Website not available";
+        }
+    }
+    
+    updateStatusDisplay(injectorName);
+}
 
     function setDefaultStatuses() {
         allowedInjectors.forEach(injectorName => {
@@ -2466,11 +2467,11 @@
                             <div class="detail-value">${injectorData.free !== undefined ? (injectorData.free ? 'Yes' : 'No') : "Not available"}</div>
                         </div>
                         <div class="detail-row">
-                            <div class="detail-label">Price:</div>
-                            <div class="detail-value">
-                                ${injectorData.free === true ? 'Free' : (injectorData.cost || "Not available")}
-                            </div>
-                        </div>
+                        <div class="detail-label">Price:</div>
+    <div class="detail-value">
+    ${injectorData.keysystem === true ? 'Free (Key System)' : 'Free'}
+        </div>
+        </div>
                         <div class="detail-row">
                             <div class="detail-label">Platform:</div>
                             <div class="detail-value">${injectorData.platform || "Not available"}</div>
@@ -2516,11 +2517,11 @@
                             <div class="detail-value">${injectorData.beta !== undefined ? (injectorData.beta ? 'Yes' : 'No') : "Not available"}</div>
                         </div>
                         <div class="detail-row">
-                            <div class="detail-label">Key System:</div>
-                            <div class="detail-value">
-                                ${injectorData.free === false ? 'Paid' : (injectorData.keysystem !== undefined ? (injectorData.keysystem ? 'Yes' : 'No') : "Not available")}
-                            </div>
-                        </div>
+                        <div class="detail-label">Key System:</div>
+    <div class="detail-value">
+    ${injectorData.keysystem === true ? 'Yes (Free)' : 'No (Free)'}
+        </div>
+    </div>
                     </div>
                 </div>
 
