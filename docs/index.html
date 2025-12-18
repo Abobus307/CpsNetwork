@@ -1568,13 +1568,6 @@
                                 <div class="status-container" id="status-Seliware"></div>
                                 <div class="executer-website" id="website-Seliware">Loading...</div>
                             </div>
-                            <div class="executer-card" onclick="showExecuterInfo('Swift')">
-                                <div class="executer-icon">💨</div>
-                                <div class="executer-name">Swift</div>
-                                <div class="executer-price" id="price-Swift">Loading...</div>
-                                <div class="status-container" id="status-Swift"></div>
-                                <div class="executer-website" id="website-Swift">Loading...</div>
-                            </div>
                             <div class="executer-card" onclick="showExecuterInfo('Valex')">
                                 <div class="executer-icon">🔮</div>
                                 <div class="executer-name">Valex</div>
@@ -1769,6 +1762,18 @@
                         
                         <div class="changelog-item">
                             <div class="changelog-header">
+                                <div class="changelog-type removed">REMOVED</div>
+                            </div>
+                            <div class="changelog-description">
+                                Removed Swift from the list of supported executors
+                            </div>
+                            <div class="changelog-details">
+                                Swift has been removed from all executor lists.
+                            </div>
+                        </div>
+                        
+                        <div class="changelog-item">
+                            <div class="changelog-header">
                                 <div class="changelog-type added">ADDED</div>
                             </div>
                             <div class="changelog-description">
@@ -1837,7 +1842,7 @@
 
     <script>
     const allowedInjectors = [
-        "Volcano", "Velocity", "Wave", "Seliware", "Swift", "Valex",
+        "Volcano", "Velocity", "Wave", "Seliware", "Valex",
         "Potassium", "Bunni.lol", "Sirhurt", "Hydrogen", "Macsploit",
         "Codex", "Cryptic", "Cryptic-Android", "Delta", "Delta-iOS",
         "ChocoSploit"
@@ -1848,7 +1853,6 @@
         "Velocity": "Undetected",
         "Wave": "Undetected",
         "Seliware": "Undetected",
-        "Swift": "Detected",
         "Valex": "Detected",
         "Potassium": "Undetected",
         "Bunni.lol": "Undetected",
@@ -1970,16 +1974,18 @@
     if (priceElement) {
         if (injectorData) {
             if (injectorData.free === false) {
-                priceElement.textContent = injectorData.cost || "Paid";
+                let priceText = injectorData.cost || "Paid";
+                priceElement.textContent = priceText;
                 priceElement.style.color = "#b38e5d";
             }
             else {
-                priceElement.textContent =
-                    injectorData.keysystem === true
-                        ? "Free (Key System)"
-                        : "Free";
-
-                priceElement.style.color = "#4caf50";
+                if (injectorData.keysystem === true) {
+                    priceElement.textContent = "Free (Key System)";
+                    priceElement.style.color = "#4caf50";
+                } else {
+                    priceElement.textContent = "Free";
+                    priceElement.style.color = "#4caf50";
+                }
             }
         } else {
             priceElement.textContent = "Loading...";
@@ -1997,7 +2003,6 @@
 
     updateStatusDisplay(injectorName);
 }
-
 
     function setDefaultStatuses() {
         allowedInjectors.forEach(injectorName => {
@@ -2432,14 +2437,6 @@
         const updateStatus = UpdateStatus[executerName] || "Unknown";
         const detectStatus = DetectStatus[executerName] || "Unknown";
 
-        const priceText =
-            injectorData.free === false
-                ? (injectorData.cost || "Paid")
-                : (injectorData.keysystem === true ? "Free (Key System)" : "Free");
-
-        const priceColor =
-            injectorData.free === false ? "#b38e5d" : "#4caf50";
-
         if (!injectorData) {
             modalContent.innerHTML = `
                 <div style="text-align: center; padding: 40px;">
@@ -2454,6 +2451,17 @@
                 modal.classList.add("active");
             }, 10);
             return;
+        }
+
+        let priceText;
+        let priceColor;
+
+        if (injectorData.free === false) {
+            priceText = injectorData.cost || "Paid";
+            priceColor = "#b38e5d";
+        } else {
+            priceText = injectorData.keysystem === true ? "Free (Key System)" : "Free";
+            priceColor = "#4caf50";
         }
 
         let modalHTML = `
@@ -2540,7 +2548,7 @@
                         <div class="detail-row">
                         <div class="detail-label">Key System:</div>
     <div class="detail-value">
-    ${injectorData.keysystem === true ? 'Yes (Free)' : 'No (Free)'}
+        ${injectorData.keysystem === true ? 'Yes' : 'No'} ${injectorData.free === false ? '(Paid)' : '(Free)'}
         </div>
     </div>
                     </div>
