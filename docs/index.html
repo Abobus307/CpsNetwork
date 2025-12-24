@@ -1298,6 +1298,65 @@
             border-radius: 12px;
             font-size: 0.8rem;
         }
+
+        .cryptic-recommend-banner {
+            margin-bottom: 15px;
+            padding: 14px 20px;
+            border-radius: 14px;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+
+            background: linear-gradient(
+                90deg,
+                rgba(255, 215, 0, 0.18),
+                rgba(138, 43, 226, 0.18)
+            );
+
+            border: 1px solid rgba(255, 215, 0, 0.45);
+            box-shadow:
+                0 0 15px rgba(255, 215, 0, 0.25),
+                0 0 25px rgba(138, 43, 226, 0.25);
+
+            color: #f1eaff;
+            backdrop-filter: blur(6px);
+        }
+
+        .cryptic-recommend-banner .banner-strong {
+            color: #ffd700;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+        }
+
+        .cryptic-recommend-banner .banner-sub {
+            display: block;
+            margin-top: 6px;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .executer-card[onclick*="Cryptic"] {
+            position: relative;
+            border: 1px solid rgba(255, 215, 0, 0.6);
+            box-shadow:
+                0 0 20px rgba(255, 215, 0, 0.35),
+                0 0 35px rgba(138, 43, 226, 0.35);
+        }
+
+        .executer-card[onclick*="Cryptic"]::after {
+            content: "RECOMMENDED";
+            position: absolute;
+            top: 10px;
+            right: 12px;
+
+            background: linear-gradient(45deg, #ffd700, #8a2be2);
+            color: #1a0a1a;
+            font-size: 0.65rem;
+            font-weight: 900;
+            padding: 4px 8px;
+            border-radius: 20px;
+
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        }
     </style>
 </head>
 <body>
@@ -1523,6 +1582,14 @@
                 <div class="executers-container">
                     <h2 class="service-title">⚙️ Supported Executers</h2>
                     <p style="margin-bottom: 30px; opacity: 0.8; color: #c0c0c0;">Click on any executor to get complete information</p>
+                    
+                    <div class="cryptic-recommend-banner">
+                        ⭐ <span class="banner-strong">!!Recommend!!</span> using <b>Cryptic</b>!  
+                        <br>
+                        <span class="banner-sub">
+                            For phones use <b>Cryptic on phone (Android)</b>, and for computers — <b>Cryptic on Mac</b>.
+                        </span>
+                    </div>
                     
                     <div class="api-status-info">
                         <h3>🌐 API Status Information</h3>
