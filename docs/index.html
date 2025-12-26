@@ -1562,6 +1562,11 @@
                             <div class="script-icon">🚂</div>
                             <div class="script-name">Dead Rails Script</div>
                         </div>
+                        
+                        <div class="script-button" onclick="showScriptModal('The Forge')">
+                            <div class="script-icon">🔥</div>
+                            <div class="script-name">The Forge Script</div>
+                        </div>
                     </div>
 
                     <div class="script-warning">
@@ -1622,13 +1627,6 @@
                                 <div class="executer-price" id="price-Velocity">Loading...</div>
                                 <div class="status-container" id="status-Velocity"></div>
                                 <div class="executer-website" id="website-Velocity">Loading...</div>
-                            </div>
-                            <div class="executer-card" onclick="showExecuterInfo('Wave')">
-                                <div class="executer-icon">🌊</div>
-                                <div class="executer-name">Wave</div>
-                                <div class="executer-price" id="price-Wave">Loading...</div>
-                                <div class="status-container" id="status-Wave"></div>
-                                <div class="executer-website" id="website-Wave">Loading...</div>
                             </div>
                             <div class="executer-card" onclick="showExecuterInfo('Seliware')">
                                 <div class="executer-icon">🛡️</div>
@@ -1726,6 +1724,13 @@
                                 <div class="status-container" id="status-Delta"></div>
                                 <div class="executer-website" id="website-Delta">Loading...</div>
                             </div>
+                            <div class="executer-card" onclick="showExecuterInfo('Vega X')">
+                                <div class="executer-icon">⭐</div>
+                                <div class="executer-name">Vega X</div>
+                                <div class="executer-price" id="price-Vega X">Loading...</div>
+                                <div class="status-container" id="status-Vega X"></div>
+                                <div class="executer-website" id="website-Vega X">Loading...</div>
+                            </div>
                         </div>
                     </div>
                     
@@ -1769,6 +1774,42 @@
                     </div>
                     
                     <div class="changelog-list">
+                        <div class="changelog-item">
+                            <div class="changelog-header">
+                                <div class="changelog-type added">ADDED</div>
+                            </div>
+                            <div class="changelog-description">
+                                Added The Forge script to the script list
+                            </div>
+                            <div class="changelog-details">
+                                Added The Forge script with loadstring support.
+                            </div>
+                        </div>
+                        
+                        <div class="changelog-item">
+                            <div class="changelog-header">
+                                <div class="changelog-type removed">REMOVED</div>
+                            </div>
+                            <div class="changelog-description">
+                                Removed Wave from the list of supported executors
+                            </div>
+                            <div class="changelog-details">
+                                Wave has been removed from all executor lists.
+                            </div>
+                        </div>
+                        
+                        <div class="changelog-item">
+                            <div class="changelog-header">
+                                <div class="changelog-type added">ADDED</div>
+                            </div>
+                            <div class="changelog-description">
+                                Added Vega X injector to the Android executors list
+                            </div>
+                            <div class="changelog-details">
+                                Added Vega X injector with API data integration.
+                            </div>
+                        </div>
+                        
                         <div class="changelog-item">
                             <div class="changelog-header">
                                 <div class="changelog-type added">ADDED</div>
@@ -1911,16 +1952,15 @@
 
     <script>
     const allowedInjectors = [
-        "Volcano", "Velocity", "Wave", "Seliware", "Valex",
+        "Volcano", "Velocity", "Seliware", "Valex",
         "Potassium", "Bunni.lol", "Sirhurt", "Hydrogen", "Macsploit",
         "Codex", "Cryptic", "Cryptic-Android", "Delta", "Delta-iOS",
-        "ChocoSploit"
+        "ChocoSploit", "Vega X"
     ];
 
     const manualDetectStatuses = {
         "Volcano": "Undetected",
         "Velocity": "Undetected",
-        "Wave": "Undetected",
         "Seliware": "Undetected",
         "Valex": "Detected",
         "Potassium": "Undetected",
@@ -1933,7 +1973,8 @@
         "Cryptic-Android": "Undetected",
         "Delta": "Undetected",
         "Delta-iOS": "Undetected",
-        "ChocoSploit": "Undetected"
+        "ChocoSploit": "Undetected",
+        "Vega X": "Undetected"
     };
 
     const API_URL = "https://weao-proxy-api.vercel.app/api/status/exploits";
@@ -2017,6 +2058,42 @@
             apiData.forEach(handleItem);
         } else if (apiData && typeof apiData === "object") {
             Object.values(apiData).forEach(handleItem);
+        }
+
+        if (!exploitsFullData["Vega X"]) {
+            exploitsFullData["Vega X"] = {
+                "_id": "6949f6f40260ad9e36c736ff",
+                "title": "Vega X",
+                "version": "2.702.632",
+                "updatedDate": "12/23/2025 at 4:52 PM UTC",
+                "uncStatus": true,
+                "free": true,
+                "detected": false,
+                "rbxversion": "2.702.632",
+                "updateStatus": true,
+                "websitelink": "https://www.vegax.gg",
+                "discordlink": "https://www.vegax.gg/discord.html",
+                "beta": false,
+                "platform": "Android",
+                "extype": "aexecutor",
+                "roleId": "1452841448084082930",
+                "index": 3,
+                "unlinked": false,
+                "purchaselink": "https://www.vegax.gg/sellix.html",
+                "uncPercentage": 98,
+                "decompiler": true,
+                "__v": 1,
+                "recommendedReason": {
+                    "features": []
+                },
+                "keysystem": true,
+                "trackerId": "WEAO8c4f2b91",
+                "sunc": {
+                    "suncScrap": "",
+                    "suncKey": ""
+                },
+                "suncPercentage": 98
+            };
         }
 
         allowedInjectors.forEach((injectorName) => {
@@ -2197,6 +2274,10 @@
         },
         "Dead Rails Script": {
             code: 'loadstring(game:HttpGet("https://api.getpolsec.com/scripts/files/8296210a2f042b36145c0db05bd725f73dcf465e2cd54e02ee843c6578a40a91.lua"))()',
+            discordLink: "https://discord.gg/uCq6dNAfRV"
+        },
+        "The Forge": {
+            code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Rx1m/CpsHub/refs/heads/main/TheForge"))()',
             discordLink: "https://discord.gg/uCq6dNAfRV"
         }
     };
