@@ -1229,7 +1229,7 @@
             color: #8a9eff;
             margin-bottom: 10px;
             display: flex;
-                align-items: center;
+            align-items: center;
             justify-content: center;
             gap: 10px;
         }
@@ -1306,18 +1306,15 @@
             text-align: center;
             font-size: 0.95rem;
             font-weight: 500;
-
             background: linear-gradient(
                 90deg,
                 rgba(255, 215, 0, 0.18),
                 rgba(138, 43, 226, 0.18)
             );
-
             border: 1px solid rgba(255, 215, 0, 0.45);
             box-shadow:
                 0 0 15px rgba(255, 215, 0, 0.25),
                 0 0 25px rgba(138, 43, 226, 0.25);
-
             color: #f1eaff;
             backdrop-filter: blur(6px);
         }
@@ -1347,14 +1344,12 @@
             position: absolute;
             top: 10px;
             right: 12px;
-
             background: linear-gradient(45deg, #ffd700, #8a2be2);
             color: #1a0a1a;
             font-size: 0.65rem;
             font-weight: 900;
             padding: 4px 8px;
             border-radius: 20px;
-
             box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
         }
     </style>
@@ -1683,12 +1678,12 @@
                                 <div class="status-container" id="status-Hydrogen"></div>
                                 <div class="executer-website" id="website-Hydrogen">Loading...</div>
                             </div>
-                            <div class="executer-card" onclick="showExecuterInfo('Macsploit')">
+                            <div class="executer-card" onclick="showExecuterInfo('MacSploit')">
                                 <div class="executer-icon">🍎</div>
-                                <div class="executer-name">Macsploit</div>
-                                <div class="executer-price" id="price-Macsploit">Loading...</div>
-                                <div class="status-container" id="status-Macsploit"></div>
-                                <div class="executer-website" id="website-Macsploit">Loading...</div>
+                                <div class="executer-name">MacSploit</div>
+                                <div class="executer-price" id="price-MacSploit">Loading...</div>
+                                <div class="status-container" id="status-MacSploit"></div>
+                                <div class="executer-website" id="website-MacSploit">Loading...</div>
                             </div>
                             <div class="executer-card" onclick="showExecuterInfo('Cryptic')">
                                 <div class="executer-icon">🔐</div>
@@ -1956,7 +1951,7 @@
     <script>
     const allowedInjectors = [
         "Volcano", "Velocity", "Seliware", "Valex",
-        "Potassium", "Bunni.lol", "Sirhurt", "Hydrogen", "Macsploit",
+        "Potassium", "Bunni.lol", "Sirhurt", "Hydrogen", "MacSploit",
         "Codex", "Cryptic", "Cryptic-Android", "Delta", "Delta-iOS",
         "ChocoSploit", "Vega X"
     ];
@@ -1970,7 +1965,7 @@
         "Bunni.lol": "Undetected",
         "Sirhurt": "Undetected",
         "Hydrogen": "Undetected",
-        "Macsploit": "Undetected",
+        "MacSploit": "Undetected",
         "Codex": "Detected",
         "Cryptic": "Undetected",
         "Cryptic-Android": "Undetected",
@@ -2026,6 +2021,10 @@
 
             let injectorName = item.name || item.injector || item.title;
 
+            if (injectorName.toLowerCase() === "macsploit" || injectorName === "MacSploit") {
+                injectorName = "MacSploit";
+            }
+            
             if (injectorName === "Delta") {
                 if (item.platform === "iOS") {
                     injectorName = "Delta-iOS";
@@ -2097,6 +2096,9 @@
                 },
                 "suncPercentage": 98
             };
+            UpdateStatus["Vega X"] = "Updated";
+            DetectStatus["Vega X"] = "Undetected";
+            updateInjectorCard("Vega X");
         }
 
         allowedInjectors.forEach((injectorName) => {
@@ -2115,43 +2117,43 @@
     }
 
     function updateInjectorCard(injectorName) {
-    const injectorData = exploitsFullData[injectorName];
+        const injectorData = exploitsFullData[injectorName];
 
-    const priceElement = document.getElementById(`price-${injectorName}`);
-    const websiteElement = document.getElementById(`website-${injectorName}`);
+        const priceElement = document.getElementById(`price-${injectorName}`);
+        const websiteElement = document.getElementById(`website-${injectorName}`);
 
-    if (priceElement) {
-        if (injectorData) {
-            if (injectorData.free === false) {
-                let priceText = injectorData.cost || "Paid";
-                priceElement.textContent = priceText;
-                priceElement.style.color = "#b38e5d";
-            }
-            else {
-                if (injectorData.keysystem === true) {
-                    priceElement.textContent = "Free (Key System)";
-                    priceElement.style.color = "#4caf50";
-                } else {
-                    priceElement.textContent = "Free";
-                    priceElement.style.color = "#4caf50";
+        if (priceElement) {
+            if (injectorData) {
+                if (injectorData.free === false) {
+                    let priceText = injectorData.cost || "Paid";
+                    priceElement.textContent = priceText;
+                    priceElement.style.color = "#b38e5d";
                 }
+                else {
+                    if (injectorData.keysystem === true) {
+                        priceElement.textContent = "Free (Key System)";
+                        priceElement.style.color = "#4caf50";
+                    } else {
+                        priceElement.textContent = "Free";
+                        priceElement.style.color = "#4caf50";
+                    }
+                }
+            } else {
+                priceElement.textContent = "Loading...";
+                priceElement.style.color = "";
             }
-        } else {
-            priceElement.textContent = "Loading...";
-            priceElement.style.color = "";
         }
-    }
 
-    if (websiteElement) {
-        if (injectorData && injectorData.websitelink) {
-            websiteElement.textContent = injectorData.websitelink.replace("https://", "");
-        } else {
-            websiteElement.textContent = "Website not available";
+        if (websiteElement) {
+            if (injectorData && injectorData.websitelink) {
+                websiteElement.textContent = injectorData.websitelink.replace("https://", "");
+            } else {
+                websiteElement.textContent = "Website not available";
+            }
         }
-    }
 
-    updateStatusDisplay(injectorName);
-}
+        updateStatusDisplay(injectorName);
+    }
 
     function setDefaultStatuses() {
         allowedInjectors.forEach(injectorName => {
